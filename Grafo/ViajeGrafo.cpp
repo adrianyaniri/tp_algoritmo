@@ -33,7 +33,7 @@ Vertice *ViajeGrafo::obtenerNodo(string nombre) {
     return nullptr;
 }
 
-void ViajeGrafo::insertarNodo(string nombre) {
+void ViajeGrafo::insertarCuidad(string nombre) {
     if(obtenerNodo(nombre) == nullptr){
         Vertice *nuevo = new Vertice(nombre);
         if(estaVacio())
@@ -59,7 +59,7 @@ void ViajeGrafo::insertarNodo(string nombre) {
  * @param precio: precio del viaje
  * @param distancia: distancia del viaje
  */
-void ViajeGrafo::insertarConexion(string origen, string destino, int precio, int distancia) {
+void ViajeGrafo::insertarViaje(string origen, string destino, int precio, int distancia) {
 
     Vertice* vOrigen = obtenerNodo(origen);
     Vertice* vDestino = obtenerNodo(destino);
@@ -100,7 +100,7 @@ void ViajeGrafo::insertarConexion(string origen, string destino, int precio, int
  * Imprime el nombre del origen del nodo en que se está recorriendo
  * También imprime el destino, precio y distancia de cada connexion
  */
-void ViajeGrafo::mostrarListaConexiones() {
+void ViajeGrafo::mostrarListaViajes() {
     Vertice* actual= primero;
 
 

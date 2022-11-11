@@ -24,13 +24,13 @@ public:
 
     // Post: retorna el vértice con el nombre dado
     Vertice* obtenerNodo(string nombre);
-    void insertarNodo(string nombre);
+    void insertarCuidad(string nombre);
 
     // Post: Inserta una arista entre los vértices primero y destino
-    void insertarConexion(string origen, string destino, int precio, int distancia);
+    void insertarViaje(string origen, string destino, int precio, int distancia);
 
     //Post: Mostar lista de adyacencia
-    void mostrarListaConexiones();
+    void mostrarListaViajes();
 
     //Post: Eliminar un vertice
     void eliminarNodo(string nombre);
