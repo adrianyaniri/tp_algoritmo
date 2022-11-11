@@ -5,15 +5,34 @@
 int main() {
   ViajeGrafo* grafo = new ViajeGrafo();
 
-  int opc = 0;
+    grafo->insertarVertice("Buenos Aires");
+    grafo->insertarVertice("Rosario");
+    grafo->insertarVertice("Cordoba");
+    grafo->insertarVertice("Mendoza");
+
+    grafo->insertarArista("Buenos Aires", "Rosario", 100, 100);
+    grafo->insertarArista("Buenos Aires", "Cordoba", 100, 100);
+    grafo->insertarArista("Buenos Aires", "Mendoza", 100, 100);
+    grafo->insertarArista("Rosario", "Cordoba", 100, 100);
+    grafo->insertarArista("Rosario", "Mendoza", 100, 100);
+    grafo->insertarArista("Rosario", "Buenos Aires", 100, 100);
+
+
+    grafo->mostrarListaAdyacencia();
+
+    grafo->eliminarArista("Buenos Aires", "Rosario");
+    cout << endl;
+    cout<< "__________________________________"<<endl;
+
+    grafo->mostrarListaAdyacencia();
 
 
   // este menu es para probar el grafo
   // se puede borrar
   // hay que implementar el menu de la consigna
 
-    while (opc != 8){
-        system("cls");
+  /*  while (opc != 8){
+
         cout << "1. Cargar un nuevo viaje" << endl;
         cout << "2. Insertar destino" << endl;
         cout << "3. Obtener tamaño" << endl;
@@ -26,8 +45,6 @@ int main() {
         cout << endl;
         cout << "Ingrese una opcion: ";
         cin >> opc;
-
-        system("cls");
 
         switch (opc) {
             case 1: {
@@ -57,13 +74,15 @@ int main() {
             }
             case 3:{
                 int tamaño = grafo->obtenerTamanio();
-                cout << "El tamaño es: " << tamaño << "vertices" <<endl;
+                cout << "El tamaño es: " << tamaño << " destinos" <<endl;
+                break;
             }
             case 4:{
                 if(grafo->estaVacio()){
                     cout << "No hay viajes cargados" << endl;
                 }
                grafo->mostrarListaAdyacencia();
+                break;
             }
             case 5:{
                 if(grafo->estaVacio()){
@@ -73,17 +92,14 @@ int main() {
                 cout << "Ingrese el nombre del viaje: ";
                 cin >> nombre;
                 grafo->eliminarVertice(nombre);
+                break;
             }
             case 6:{
                 if(grafo->estaVacio()){
                     cout << "No hay viajes cargados" << endl;
                 }
-                string origen, destino;
-                cout << "Ingrese el origen: ";
-                cin >> origen;
-                cout << "Ingrese el destino: ";
-                cin >> destino;
-                grafo->eliminarArista(origen, destino);
+                grafo->mostrarListaAdyacencia();
+                break;
             }
             case 7:{
                 if (grafo->estaVacio()){
@@ -95,5 +111,5 @@ int main() {
         }
         cin.get();
         cin.get();
-    }
+    }*/
 }

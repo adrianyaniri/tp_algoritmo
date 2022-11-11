@@ -44,14 +44,22 @@ void ViajeGrafo::insertarVertice(string nombre) {
         }
         tamanio++;
     }
-    cout << "El viaje ya esta cargado " << endl;
+    else{
+        cout << "El viaje ya esta cargado " << endl;
+    }
+
 }
 
 void ViajeGrafo::insertarArista(string origen, string destino, int precio, int distancia) {
+
     Vertice* vOrigen = obtenerVertice(origen);
     Vertice* vDestino = obtenerVertice(destino);
-    if(vOrigen == nullptr || vDestino == nullptr){
-        cout << "No se puede insertar la arista" << endl;   // Si alguno de los vértices no existe
+
+    if(vOrigen == nullptr){
+        cout << "Es lugar de origen no existe " << endl;   // Si alguno de los vértices no existe
+    }
+    if(vDestino == nullptr){
+        cout << "Es lugar de destino no existe " << endl;
     }
     /*
      * Si el vértice primero no tiene aristas, se crea una nueva
@@ -86,16 +94,16 @@ void ViajeGrafo::insertarArista(string origen, string destino, int precio, int d
 void ViajeGrafo::mostrarListaAdyacencia() {
     Vertice* actual= primero;
 
+
     // Recorre los vertices
     while(actual != nullptr){
         Arista* aux = actual->arista;
 
         // Recorre las aristas de cada vertice
         while (aux != nullptr){
-            cout << "Origen: " << actual->nombre << " --> " << endl;
-            cout
-            << " Precio: " << aux->precio << "$ "<< " --> "
-            <<" Distancia: " << aux->distancia <<"Km"  << "," << endl;
+            cout << "Origen: " << actual->nombre << " --> "  << "Destino: " << aux->destino->nombre << endl;
+            cout << "Precio: $" << aux->precio << "   "<< "Distancia: " << aux->distancia<< "Kms" << endl;
+            cout << endl;
             aux = aux->sig;
         }
         actual = actual->sig;

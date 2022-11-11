@@ -9,5 +9,4 @@ Arista::Arista(Vertice* _destino,int _precio, int _distancia) {
     destino = _destino;
     distancia = _distancia;
     sig = nullptr;
-    destino = nullptr;
 }

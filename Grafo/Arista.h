@@ -14,10 +14,10 @@ class Arista {
         // Constructor
         Arista(Vertice* destino,int precio, int distancia);
 
-    Arista *sig;
-    Vertice *destino;
-    int distancia;
-    int precio;
+       Arista *sig;
+       Vertice *destino;
+       int distancia;
+       int precio;
 };
 
 
