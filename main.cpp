@@ -7,6 +7,11 @@ int main() {
 
   int opc = 0;
 
+
+  // este menu es para probar el grafo
+  // se puede borrar
+  // hay que implementar el menu de la consigna
+
     while (opc != 8){
         system("cls");
         cout << "1. Cargar un nuevo viaje" << endl;
