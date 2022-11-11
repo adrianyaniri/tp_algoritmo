@@ -1,26 +1,94 @@
 #include <iostream>
-#include "ListaEnlazada/Nodo.h"
-#include "ListaEnlazada/Lista.h"
+#include "Grafo/ViajeGrafo.h"
+
 
 int main() {
-    Dato viaje1 = {1, "Buenos Aires", "Cordoba", 3, 1000};
-    Dato viaje2 = {2, "Buenos Aires", "Rosario", 2, 500};
-    Dato viaje3 = {3, "Buenos Aires", "Mendoza", 4, 2000};
-    Dato viaje4 = {4, "Buenos Aires", "Mar del Plata", 5, 3000};
+  ViajeGrafo* grafo = new ViajeGrafo();
 
-    Lista *viajes = new Lista();
+  int opc = 0;
 
-    viajes->insertar(viaje4);
-    viajes->insertar(viaje1);
-    viajes->insertar(viaje2);
-    viajes->insertar(viaje3);
+    while (opc != 8){
+        system("cls");
+        cout << "1. Cargar un nuevo viaje" << endl;
+        cout << "2. Insertar destino" << endl;
+        cout << "3. Obtener tamaño" << endl;
+        cout << "4. Eliminar viaje" << endl;
+        cout << "5. Eliminar destino" << endl;
+        cout << "6. Mostrar destinos" << endl;
+        cout << "7. Eliminar todo" << endl;
+        cout << "8. Salir" << endl;
 
-    viajes->imprimirListaCompleta();
+        cout << endl;
+        cout << "Ingrese una opcion: ";
+        cin >> opc;
 
-    std::cout << "Tamanio de la lista: " << viajes->tamanio << std::endl;
+        system("cls");
 
-   viajes->estaVacia();
+        switch (opc) {
+            case 1: {
+                string nombre;
+                cout << "Ingrese el nombre del viaje: ";
+                cin >> nombre;
+                grafo->insertarVertice(nombre);
+                break;
+            }
+            case 2:{
+                if(grafo->estaVacio()){
+                    cout << "No hay viajes cargados" << endl;
+                }
+                string origen, destino;
+                int precio, distancia;
+                cout << "Ingrese el origen: ";
+                cin >> origen;
+                cout << "Ingrese el destino: ";
+                cin >> destino;
+                cout << "Ingrese el precio: ";
+                cin >> precio;
+                cout << "Ingrese la distancia: ";
+                cin >> distancia;
 
-
-   return 0;
+                grafo->insertarArista(origen, destino, precio, distancia);
+                break;
+            }
+            case 3:{
+                int tamaño = grafo->obtenerTamanio();
+                cout << "El tamaño es: " << tamaño << "vertices" <<endl;
+            }
+            case 4:{
+                if(grafo->estaVacio()){
+                    cout << "No hay viajes cargados" << endl;
+                }
+               grafo->mostrarListaAdyacencia();
+            }
+            case 5:{
+                if(grafo->estaVacio()){
+                    cout << "No hay viajes cargados" << endl;
+                }
+                string nombre;
+                cout << "Ingrese el nombre del viaje: ";
+                cin >> nombre;
+                grafo->eliminarVertice(nombre);
+            }
+            case 6:{
+                if(grafo->estaVacio()){
+                    cout << "No hay viajes cargados" << endl;
+                }
+                string origen, destino;
+                cout << "Ingrese el origen: ";
+                cin >> origen;
+                cout << "Ingrese el destino: ";
+                cin >> destino;
+                grafo->eliminarArista(origen, destino);
+            }
+            case 7:{
+                if (grafo->estaVacio()){
+                    cout << "No hay viajes cargados" << endl;
+                }
+                grafo->eliminarGrafo();
+                break;
+            }
+        }
+        cin.get();
+        cin.get();
+    }
 }

@@ -7,14 +7,10 @@
 
 #include "Vertice.h"
 using namespace std;
-#define MAX 100
-
-
-int MatizAdyacencia[MAX][MAX];  // Matriz de adyacencia del grafo
 
 class ViajeGrafo{
 
-    Vertice *origen;
+    Vertice *primero;
     int tamanio;
 
 public:
@@ -30,7 +26,7 @@ public:
     Vertice* obtenerVertice(string nombre);
     void insertarVertice(string nombre);
 
-    // Post: Inserta una arista entre los vértices origen y destino
+    // Post: Inserta una arista entre los vértices primero y destino
     void insertarArista(string origen,string destino, int precio, int distancia);
 
     //Post: Mostar lista de adyacencia
@@ -39,12 +35,25 @@ public:
     //Post: Eliminar un vertice
     void eliminarVertice(string nombre);
 
-    //Post: Eliminar una arista entre los vértices origen y destino
+    //Post: Eliminar una arista entre los vértices primero y destino
     void eliminarArista(string origen, string destino);
 
     //Post: Elimitar todos los vertices y aristas del grafo
     void eliminarGrafo();
 
+    /*
+     * Pre: El grafo debe estar cargado
+     * Post: Elimina todas las arista del vertice
+     * @arg vertice: vertice a eliminar
+     */
+
+    static void eliminarAristasVertice(Vertice *vertice);
+    /*
+     * Post: Elimina las aristas destino del vertice
+     * Eliminta todas las conexiones del vertice con los demas vertices
+     * @arg destino: vertice destino
+     */
+    void eliminarAristasDestino(string destino);
 
 };
 
