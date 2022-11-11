@@ -30,10 +30,10 @@ public:
     void insertarViaje(string origen, string destino, int precio, int distancia);
 
     //Post: Mostar lista de adyacencia
-    void mostrarListaViajes();
+    void mostrarListaDestinos();
 
     //Post: Eliminar un vertice
-    void eliminarNodo(string nombre);
+    void eliminarDestino(string nombre);
 
     //Post: Eliminar una arista entre los vértices primero y destino
     void eliminarConexion(string origen, string destino);
@@ -47,7 +47,7 @@ public:
      * @arg nodo: nodo a eliminar
      */
 
-    static void eliminarAristasVertice(Vertice *nodo);
+    static void eliminarConexionesNodo(Vertice *nodo);
     /*
      * Post: Elimina las aristas destino del vertice
      * Eliminta todas las conexiones del vertice con los demas vertices

@@ -100,7 +100,7 @@ void ViajeGrafo::insertarViaje(string origen, string destino, int precio, int di
  * Imprime el nombre del origen del nodo en que se está recorriendo
  * También imprime el destino, precio y distancia de cada connexion
  */
-void ViajeGrafo::mostrarListaViajes() {
+void ViajeGrafo::mostrarListaDestinos() {
     Vertice* actual= primero;
 
 
@@ -111,11 +111,12 @@ void ViajeGrafo::mostrarListaViajes() {
 
         // Recorre las aristas de cada vertice
         while (aux != nullptr){
-            cout << " --> "  << "Destino: " << aux->destino->nombre << endl;
+            cout << "Destino: " << " --> "  << aux->destino->nombre << endl;
             cout << "Precio: $" << aux->precio << "   "<< "Distancia: " << aux->distancia<< "Kms" << endl;
-            cout << endl;
             aux = aux->sig;
+            cout << endl;
         }
+        cout<< "*************"<< endl;
         actual = actual->sig;
     }
 }
@@ -139,7 +140,7 @@ void ViajeGrafo::eliminarConexion(string origen, string destino) {
         if(vOrigen->arista->destino = vDestino){
             Arista* aux = vOrigen->arista;
             vOrigen->arista = vOrigen->arista->sig;
-            cout << "Se eliminino " << origen << "-->" << destino  << endl;
+            cout << "Se eliminino la conexion" << origen << " --> " << destino  << endl;
             delete aux;
         }
         else{
@@ -164,7 +165,7 @@ void ViajeGrafo::eliminarConexion(string origen, string destino) {
 /*
  * Post: Elimina un vertice y todas sus aristas
  */
-void ViajeGrafo::eliminarNodo(std::string nombre) {
+void ViajeGrafo::eliminarDestino(std::string nombre) {
     /*
      * Si es el primer nodo
      * 1. Elimina todas las aristas del nodo
@@ -174,8 +175,8 @@ void ViajeGrafo::eliminarNodo(std::string nombre) {
 
          Vertice* aux = primero;
          primero = primero->sig;
-         eliminarAristasVertice(aux);
-        eliminarConexionesDestino(aux->nombre);
+         eliminarConexionesNodo(aux);
+         eliminarConexionesDestino(aux->nombre);
          cout << "Se elimino el vertice " << nombre << endl;
          delete aux;
          tamanio--;
@@ -194,14 +195,17 @@ void ViajeGrafo::eliminarNodo(std::string nombre) {
 
         while(aux != nullptr){
             if(aux->nombre == nombre){
-                eliminarAristasVertice(aux);
+
+                actual->sig = aux->sig;actual->sig = aux->sig;
+                eliminarConexionesNodo(aux);
                 eliminarConexionesDestino(aux->nombre);
                 actual->sig = aux->sig;
-                cout << "Se elimino el vertice " << nombre << endl;
+                cout << "Se elimino el Nodo" << nombre << endl;
                 delete aux;
                 tamanio--;
                 existe = true; // True cuando elimina el nodo
                 break;
+
             }
             actual = actual->sig; // aux;
             aux = aux->sig;
@@ -218,7 +222,8 @@ void ViajeGrafo::eliminarGrafo() {
     while(primero != nullptr){
         actual = primero;
         primero = primero->sig;
-        eliminarAristasVertice(actual);
+        eliminarConexionesNodo(actual);
+
         cout << "Se elimino el destino " << actual->nombre << endl;
         delete actual;
         tamanio--;
@@ -226,15 +231,18 @@ void ViajeGrafo::eliminarGrafo() {
 }
 
 // Elimina todas las conexiones de un nodo
-void ViajeGrafo::eliminarAristasVertice(Vertice *nodo) {
+void ViajeGrafo::eliminarConexionesNodo(Vertice *nodo) {
+    if(nodo == nullptr)
+        return;
+
     Arista* aux = nodo->arista;
 
     while(nodo->arista != nullptr){
 
         aux = nodo->arista; // aux apunta al nodo que se va a eliminar
         nodo->arista = nodo->arista->sig;   // Apunta a la siguiente connexion del nodo a eliminar
-        cout << "Eliminando Nodo: " << nodo->nombre
-             << "-->" << aux->destino->sig << "eliminado " << endl;
+        cout << "Eliminan conexion  " << nodo->nombre
+             << "-->" << aux->destino->sig << " eliminado " << endl;
         delete aux;
     }
 }
@@ -243,13 +251,16 @@ void ViajeGrafo::eliminarConexionesDestino(string destino) {
     Vertice* actual = primero;
 
     while (actual != nullptr){
-        if(actual->nombre == destino)  // Si el nodo es el destino
+        if(actual->nombre == destino || actual->arista == nullptr){
+            actual = actual->sig;
             continue;
+        }
         // Si es la primera conexion a eliminar de la lista del destino
         if( actual->arista->destino->nombre == destino ){
+
             Arista* aux = actual->arista;
             actual->arista = actual->arista->sig;
-            cout << "Eliminando arista: " << actual->nombre << "-->" << aux->destino->nombre << endl;
+            cout << "Eliminando Conexion : " << actual->nombre << "-->" << destino << endl;
             delete aux;
         }
         else{
@@ -257,11 +268,13 @@ void ViajeGrafo::eliminarConexionesDestino(string destino) {
             Arista* aristaSig = actualArista->sig;
 
             while (aristaSig != nullptr){
+
                if(aristaSig->destino->nombre == destino){
+
                    actualArista->sig = aristaSig->sig;
-                   cout << "Eliminando arista: " << actual->nombre << "-->" << aristaSig->destino->nombre << endl;
+                   cout << "Eliminando conexion : " << actual->nombre << "-->" << destino << endl;
                    delete aristaSig;
-                   break;
+
                }
                actualArista = aristaSig;
                aristaSig = aristaSig->sig;

@@ -20,14 +20,9 @@ int main() {
     grafo->insertarViaje("Cordoba", "Buenos Aires", 100, 100);
 
 
-    grafo->mostrarListaViajes();
-
-    grafo->eliminarConexion("Buenos Aires", "Rosario");
-    cout << endl;
-    cout<< "__________________________________"<<endl;
-
-    grafo->mostrarListaViajes();
-
+    grafo->insertarCuidad("Formosa");
+    cout << grafo->obtenerTamanio();
+    grafo->eliminarGrafo();
 
     return 0;
 }
