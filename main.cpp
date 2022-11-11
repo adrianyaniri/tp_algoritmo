@@ -5,26 +5,28 @@
 int main() {
   ViajeGrafo* grafo = new ViajeGrafo();
 
-    grafo->insertarVertice("Buenos Aires");
-    grafo->insertarVertice("Rosario");
-    grafo->insertarVertice("Cordoba");
-    grafo->insertarVertice("Mendoza");
+    grafo->insertarNodo("Buenos Aires");
+    grafo->insertarNodo("Rosario");
+    grafo->insertarNodo("Cordoba");
+    grafo->insertarNodo("Mendoza");
+    grafo->insertarNodo("San Juan");
 
-    grafo->insertarArista("Buenos Aires", "Rosario", 100, 100);
-    grafo->insertarArista("Buenos Aires", "Cordoba", 100, 100);
-    grafo->insertarArista("Buenos Aires", "Mendoza", 100, 100);
-    grafo->insertarArista("Rosario", "Cordoba", 100, 100);
-    grafo->insertarArista("Rosario", "Mendoza", 100, 100);
-    grafo->insertarArista("Rosario", "Buenos Aires", 100, 100);
+    grafo->insertarConexion("Buenos Aires", "Rosario", 100, 100);
+    grafo->insertarConexion("Buenos Aires", "Cordoba", 100, 100);
+    grafo->insertarConexion("Buenos Aires", "Mendoza", 100, 100);
+    grafo->insertarConexion("Rosario", "Cordoba", 100, 100);
+    grafo->insertarConexion("Rosario", "Mendoza", 100, 100);
+    grafo->insertarConexion("Rosario", "Buenos Aires", 100, 100);
+    grafo->insertarConexion("Cordoba", "Buenos Aires", 100, 100);
 
 
-    grafo->mostrarListaAdyacencia();
+    grafo->mostrarListaConexiones();
 
-    grafo->eliminarArista("Buenos Aires", "Rosario");
+    grafo->eliminarConexion("Buenos Aires", "Rosario");
     cout << endl;
     cout<< "__________________________________"<<endl;
 
-    grafo->mostrarListaAdyacencia();
+    grafo->mostrarListaConexiones();
 
 
   // este menu es para probar el grafo
@@ -51,7 +53,7 @@ int main() {
                 string nombre;
                 cout << "Ingrese el nombre del viaje: ";
                 cin >> nombre;
-                grafo->insertarVertice(nombre);
+                grafo->insertarNodo(nombre);
                 break;
             }
             case 2:{
@@ -69,7 +71,7 @@ int main() {
                 cout << "Ingrese la distancia: ";
                 cin >> distancia;
 
-                grafo->insertarArista(origen, destino, precio, distancia);
+                grafo->insertarConexion(origen, destino, precio, distancia);
                 break;
             }
             case 3:{
@@ -91,14 +93,14 @@ int main() {
                 string nombre;
                 cout << "Ingrese el nombre del viaje: ";
                 cin >> nombre;
-                grafo->eliminarVertice(nombre);
+                grafo->eliminarNodo(nombre);
                 break;
             }
             case 6:{
                 if(grafo->estaVacio()){
                     cout << "No hay viajes cargados" << endl;
                 }
-                grafo->mostrarListaAdyacencia();
+                grafo->mostrarListaConexiones();
                 break;
             }
             case 7:{

@@ -15,11 +15,13 @@ bool ViajeGrafo::estaVacio() {
     return primero == nullptr;
 }
 
+
+//Post: retorna el total de todos los nodos del grafo
 int ViajeGrafo::obtenerTamanio() {
    return tamanio;
 }
 
-Vertice *ViajeGrafo::obtenerVertice(string nombre) {
+Vertice *ViajeGrafo::obtenerNodo(string nombre) {
     Vertice *aux = primero;  // aux apunta al primer vértice
 
     while (aux != nullptr) {
@@ -31,8 +33,8 @@ Vertice *ViajeGrafo::obtenerVertice(string nombre) {
     return nullptr;
 }
 
-void ViajeGrafo::insertarVertice(string nombre) {
-    if(obtenerVertice(nombre) == nullptr){
+void ViajeGrafo::insertarNodo(string nombre) {
+    if(obtenerNodo(nombre) == nullptr){
         Vertice *nuevo = new Vertice(nombre);
         if(estaVacio())
             primero = nuevo;
@@ -50,10 +52,17 @@ void ViajeGrafo::insertarVertice(string nombre) {
 
 }
 
-void ViajeGrafo::insertarArista(string origen, string destino, int precio, int distancia) {
+/*
+ * Pre: Inserta una conexion entre el origen y el destino
+ * @param origen: nombre del origen
+ * @param destino: nombre del destino
+ * @param precio: precio del viaje
+ * @param distancia: distancia del viaje
+ */
+void ViajeGrafo::insertarConexion(string origen, string destino, int precio, int distancia) {
 
-    Vertice* vOrigen = obtenerVertice(origen);
-    Vertice* vDestino = obtenerVertice(destino);
+    Vertice* vOrigen = obtenerNodo(origen);
+    Vertice* vDestino = obtenerNodo(destino);
 
     if(vOrigen == nullptr){
         cout << "Es lugar de origen no existe " << endl;   // Si alguno de los vértices no existe
@@ -75,7 +84,7 @@ void ViajeGrafo::insertarArista(string origen, string destino, int precio, int d
             vOrigen->arista = nueva;
         }
         /*
-         * Si el vértice origne no tiene aristas, se inserta al principio de la lista
+         * Si el vértice origen no tiene aristas, se inserta al principio de la lista
          */
         else{
             Arista* aux = vOrigen->arista;
@@ -87,21 +96,22 @@ void ViajeGrafo::insertarArista(string origen, string destino, int precio, int d
 }
 /*
  * Post: Muestra la lista de adyacencia
- * Recorre los vertices y recorre las aristas de cada vertice
- * Imprime el nombre del vertice que se esta recorriendo
- * Tambien imprime el destino, precio y distancia de cada arista
+ * Recorre los vertices del grafo y muestra las conexiones
+ * Imprime el nombre del origen del nodo en que se está recorriendo
+ * También imprime el destino, precio y distancia de cada connexion
  */
-void ViajeGrafo::mostrarListaAdyacencia() {
+void ViajeGrafo::mostrarListaConexiones() {
     Vertice* actual= primero;
 
 
     // Recorre los vertices
     while(actual != nullptr){
         Arista* aux = actual->arista;
+        cout << "Origen: " << actual->nombre << endl;
 
         // Recorre las aristas de cada vertice
         while (aux != nullptr){
-            cout << "Origen: " << actual->nombre << " --> "  << "Destino: " << aux->destino->nombre << endl;
+            cout << " --> "  << "Destino: " << aux->destino->nombre << endl;
             cout << "Precio: $" << aux->precio << "   "<< "Distancia: " << aux->distancia<< "Kms" << endl;
             cout << endl;
             aux = aux->sig;
@@ -111,12 +121,12 @@ void ViajeGrafo::mostrarListaAdyacencia() {
 }
 
 /*
- * Post: Elinina un vertice y todas sus aristas
+ * Post: Elinina un las conexiones de un nodo
  */
-void ViajeGrafo::eliminarArista(string origen, string destino) {
+void ViajeGrafo::eliminarConexion(string origen, string destino) {
 
-    Vertice* vOrigen = obtenerVertice(origen);
-    Vertice* vDestino = obtenerVertice(destino);
+    Vertice* vOrigen = obtenerNodo(origen);
+    Vertice* vDestino = obtenerNodo(destino);
 
     if (vOrigen == nullptr ){
         cout << "el origen no existe " << endl;
@@ -154,53 +164,54 @@ void ViajeGrafo::eliminarArista(string origen, string destino) {
 /*
  * Post: Elimina un vertice y todas sus aristas
  */
-void ViajeGrafo::eliminarVertice(std::string nombre) {
+void ViajeGrafo::eliminarNodo(std::string nombre) {
     /*
-     * Si es el primer vertice
-     * 1. Elimina todas las aristas del vertice
-     * 2. Elimina el vertice
+     * Si es el primer nodo
+     * 1. Elimina todas las aristas del nodo
+     * 2. Elimina el nodo
      */
     if(primero->nombre == nombre){
 
          Vertice* aux = primero;
          primero = primero->sig;
          eliminarAristasVertice(aux);
-         eliminarAristasDestino(aux->nombre);
+        eliminarConexionesDestino(aux->nombre);
          cout << "Se elimino el vertice " << nombre << endl;
          delete aux;
          tamanio--;
     }
     /*
-     * Si elima un vertice que no es el primero
-     * 1. Elimina todas las aristas del vertice
-     * 2. Ligar el vertice anterior con el siguiente para no perder la referencia
-     * 3. Elimina el vertice
+     * Si se quiere eliminar un nodo que no es el primero
+     * 1. Elimina todas las aristas del nodo
+     * 2. Ligar el nod anterior con el siguiente para no perder la referencia
+     * 3. Elimina el nodo
      */
     else{
-        // Recorre el grafo hasta encontrar el vertice
+        // Recorre el grafo hasta encontrar el nodo
         Vertice* actual = primero;
         Vertice* aux = actual->sig;
-        bool existe = false;    // Indica false si el vertice no existe
+        bool existe = false;    // Verifica si el nodo existe en el grafo -- default: false
 
         while(aux != nullptr){
             if(aux->nombre == nombre){
                 eliminarAristasVertice(aux);
-                eliminarAristasDestino(aux->nombre);
+                eliminarConexionesDestino(aux->nombre);
                 actual->sig = aux->sig;
                 cout << "Se elimino el vertice " << nombre << endl;
                 delete aux;
                 tamanio--;
-                existe = true; // True cuando elimina el vertice
+                existe = true; // True cuando elimina el nodo
                 break;
             }
             actual = actual->sig; // aux;
             aux = aux->sig;
         }
         if(!existe)
-            cout << "El vertice no existe" << endl;
+            cout << "El Nodo no existe" << endl;
     }
 }
 
+//Post: Elimina todos los nodos del grafo
 void ViajeGrafo::eliminarGrafo() {
     Vertice* actual = primero;
 
@@ -214,27 +225,27 @@ void ViajeGrafo::eliminarGrafo() {
     }
 }
 
-// Elimina todos las arista del vertice
-void ViajeGrafo::eliminarAristasVertice(Vertice *vertice) {
-    Arista* aux = vertice->arista;
+// Elimina todas las conexiones de un nodo
+void ViajeGrafo::eliminarAristasVertice(Vertice *nodo) {
+    Arista* aux = nodo->arista;
 
-    while(vertice->arista != nullptr){
+    while(nodo->arista != nullptr){
 
-        aux = vertice->arista; // aux apunta al vertice que se va a eliminar
-        vertice->arista = vertice->arista->sig;   // Apunta a la siguiente arista del vertice a eliminar
-        cout << "Eliminando arista: " << vertice->nombre
-        <<"-->" << aux->destino->sig << "eliminada "<< endl;
+        aux = nodo->arista; // aux apunta al nodo que se va a eliminar
+        nodo->arista = nodo->arista->sig;   // Apunta a la siguiente connexion del nodo a eliminar
+        cout << "Eliminando Nodo: " << nodo->nombre
+             << "-->" << aux->destino->sig << "eliminado " << endl;
         delete aux;
     }
 }
-
-void ViajeGrafo::eliminarAristasDestino(string destino) {
+// Post: Elimina todas las conexiones que apuntan a un nodo
+void ViajeGrafo::eliminarConexionesDestino(string destino) {
     Vertice* actual = primero;
 
     while (actual != nullptr){
-        if(actual->nombre == destino)  // Si el vertice es el destino
+        if(actual->nombre == destino)  // Si el nodo es el destino
             continue;
-        // Si es la primera arista a eliminar de la lista del destino
+        // Si es la primera conexion a eliminar de la lista del destino
         if( actual->arista->destino->nombre == destino ){
             Arista* aux = actual->arista;
             actual->arista = actual->arista->sig;

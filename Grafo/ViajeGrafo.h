@@ -23,37 +23,37 @@ public:
     int obtenerTamanio();
 
     // Post: retorna el vértice con el nombre dado
-    Vertice* obtenerVertice(string nombre);
-    void insertarVertice(string nombre);
+    Vertice* obtenerNodo(string nombre);
+    void insertarNodo(string nombre);
 
     // Post: Inserta una arista entre los vértices primero y destino
-    void insertarArista(string origen,string destino, int precio, int distancia);
+    void insertarConexion(string origen, string destino, int precio, int distancia);
 
     //Post: Mostar lista de adyacencia
-    void mostrarListaAdyacencia();
+    void mostrarListaConexiones();
 
     //Post: Eliminar un vertice
-    void eliminarVertice(string nombre);
+    void eliminarNodo(string nombre);
 
     //Post: Eliminar una arista entre los vértices primero y destino
-    void eliminarArista(string origen, string destino);
+    void eliminarConexion(string origen, string destino);
 
     //Post: Elimitar todos los vertices y aristas del grafo
     void eliminarGrafo();
 
     /*
      * Pre: El grafo debe estar cargado
-     * Post: Elimina todas las arista del vertice
-     * @arg vertice: vertice a eliminar
+     * Post: Elimina todas las conexiones del nodo
+     * @arg nodo: nodo a eliminar
      */
 
-    static void eliminarAristasVertice(Vertice *vertice);
+    static void eliminarAristasVertice(Vertice *nodo);
     /*
      * Post: Elimina las aristas destino del vertice
      * Eliminta todas las conexiones del vertice con los demas vertices
      * @arg destino: vertice destino
      */
-    void eliminarAristasDestino(string destino);
+    void eliminarConexionesDestino(string destino);
 
 };
 
