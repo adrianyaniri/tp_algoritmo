@@ -8,7 +8,7 @@
 #include "Vertice.h"
 using namespace std;
 
-class ViajeGrafo{
+class ViajeGrafo {
 
     Vertice *primero;
     int tamanio;
@@ -16,6 +16,7 @@ class ViajeGrafo{
 public:
     // Constructor
     ViajeGrafo();
+
     // Post: retorna true si el grafo está vacío, false en caso contrario
     bool estaVacio();
 
@@ -23,20 +24,21 @@ public:
     int obtenerTamanio() const;
 
     // Post: retorna el vértice con el nombre dado
-    Vertice* obtenerCiudad(const string& nombre);
-    void insertarCuidad(const string& nombre);
+    Vertice *obtenerCiudad(const string &nombre);
+
+    void insertarCuidad(const string &nombre);
 
     // Post: Inserta una arista entre los vértices primero y destino
-    void insertarViaje(const string& origen, const string& destino, int precio, int distancia);
+    void insertarViaje(const string &origen, const string &destino, int precio, int distancia);
 
     //Post: Mostar lista de adyacencia
     void mostrarListaDestinos();
 
     //Post: Eliminar un vertice
-    void eliminarCiudad(const string& nombre);
+    void eliminarCiudad(const string &nombre);
 
     //Post: Eliminar una arista entre los vértices primero y destino
-    void eliminarConexion(const string& origen, const string& destino);
+    void eliminarConexion(const string &origen, const string &destino);
 
     //Post: Elimitar todos los vertices y aristas del grafo
     void eliminarGrafo();
@@ -48,15 +50,17 @@ public:
      */
 
     static void eliminarConexionesCiudad(Vertice *ciudad);
+
     /*
      * Post: Elimina las aristas destino del vertice
      * Eliminta todas las conexiones del vertice con los demás vertices
      * @arg destino: vertice destino
      */
-    void eliminarConexionesDestino(const string& destino);
+    void eliminarConexionesDestino(const string &destino);
 
-    void reocorridoDijkstra(const string& origen);
+    void reocorridoDijkstra(const string &origen);
 
 };
+
 
 #endif //ESTRUCTURASDATOS_VIAJEGRAFO_H

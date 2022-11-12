@@ -376,7 +376,7 @@ void ViajeGrafo::reocorridoDijkstra(const string &origen) {
         // Procesa la ciudad actual
         while(!cola.empty()){
             // Obtiene la ciudad con la distancia más corta
-            map<Vertice*, int>::iterator it= min_element(cola.begin(), cola.end(), costoMinimo);
+            auto it= min_element(cola.begin(), cola.end(), costoMinimo);
             visitados[it->first] = true;            // Pone la ciudad actual como visitada
 
             // Recorre las conexiones de la ciudad actual
@@ -399,10 +399,21 @@ void ViajeGrafo::reocorridoDijkstra(const string &origen) {
         for(map<Vertice*, int>::iterator it = distancias.begin(); it != distancias.end(); it++){
             cout << "Distancia de " << ciudadOrigen->nombre << " a " << it->first->nombre << " es " << it->second << endl;
         }
-        cout << endl;
 
+        for(auto it = rutas.begin(); it != rutas.end(); it++){
+
+            Vertice* ciudadActual = it->first;
+            cout << "Ruta de " << ciudadOrigen->nombre;
+            while(ciudadActual != nullptr){
+                cout << ciudadActual->nombre << " ->";
+                ciudadActual = rutas[ciudadActual];
+            }
+            cout << endl;
+        }
     }
 }
+
+
 
 
 
