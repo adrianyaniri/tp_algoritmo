@@ -1,23 +1,11 @@
 # ninja log v5
-185	244	1668206785028135803	estructurasDatos	6064e1da304e5b2a
+483	542	1668221781144377640	estructurasDatos	6064e1da304e5b2a
 1	179	1668034402316280431	CMakeFiles/estructurasDatos.dir/ListaEnlazada/Nodo.cpp.o	fda50797b009fe87
-1	197	1668206670616133958	CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.o	38a69efb8dddccb0
+1	483	1668221781084377639	CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.o	38a69efb8dddccb0
 0	183	1668042732672414772	CMakeFiles/estructurasDatos.dir/ListaEnlazada/Lista.cpp.o	43577ffee18f4843
 1	13	1668043916208433858	CMakeFiles/estructurasDatos.dir/Grafo/NodoGrafo.cpp.o	8dd6fc4ba6d119ff
 1	13	1668034257672278098	CMakeFiles/estructurasDatos.dir/Lista/Lista.cpp.o	a52c2308a71375e1
 1	13	1668034257672278098	CMakeFiles/estructurasDatos.dir/Lista/NodoSimple.cpp.o	1fe3a96ea29dee47
 1	127	1668180944770627102	CMakeFiles/estructurasDatos.dir/Grafo/Vertice.cpp.o	658b2a1b5f62399e
 1	19	1668180944662627100	CMakeFiles/estructurasDatos.dir/Grafo/Arista.cpp.o	f833dc6f68523004
-1	185	1668206784968135802	CMakeFiles/estructurasDatos.dir/main.cpp.o	7bd20cc3fdae34dd
-0	179	1668206801520136069	CMakeFiles/estructurasDatos.dir/main.cpp.o	7bd20cc3fdae34dd
-179	229	1668206801568136070	estructurasDatos	6064e1da304e5b2a
-0	183	1668206814856136284	CMakeFiles/estructurasDatos.dir/main.cpp.o	7bd20cc3fdae34dd
-183	233	1668206814908136285	estructurasDatos	6064e1da304e5b2a
-1	190	1668206840664136700	CMakeFiles/estructurasDatos.dir/main.cpp.o	7bd20cc3fdae34dd
-190	240	1668206840716136701	estructurasDatos	6064e1da304e5b2a
-0	201	1668207223612142876	CMakeFiles/estructurasDatos.dir/main.cpp.o	7bd20cc3fdae34dd
-201	258	1668207223668142877	estructurasDatos	6064e1da304e5b2a
-0	195	1668207697944150525	CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.o	38a69efb8dddccb0
-196	249	1668207697996150526	estructurasDatos	6064e1da304e5b2a
-0	206	1668207774596151761	CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.o	38a69efb8dddccb0
-206	259	1668207774648151762	estructurasDatos	6064e1da304e5b2a
+0	191	1668221651672375552	CMakeFiles/estructurasDatos.dir/main.cpp.o	7bd20cc3fdae34dd

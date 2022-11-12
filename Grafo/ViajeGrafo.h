@@ -20,40 +20,42 @@ public:
     bool estaVacio();
 
     // Post: retorna el número de vértices del grafo
-    int obtenerTamanio();
+    int obtenerTamanio() const;
 
     // Post: retorna el vértice con el nombre dado
-    Vertice* obtenerNodo(string nombre);
-    void insertarCuidad(string nombre);
+    Vertice* obtenerCiudad(const string& nombre);
+    void insertarCuidad(const string& nombre);
 
     // Post: Inserta una arista entre los vértices primero y destino
-    void insertarViaje(string origen, string destino, int precio, int distancia);
+    void insertarViaje(const string& origen, const string& destino, int precio, int distancia);
 
     //Post: Mostar lista de adyacencia
     void mostrarListaDestinos();
 
     //Post: Eliminar un vertice
-    void eliminarDestino(string nombre);
+    void eliminarCiudad(const string& nombre);
 
     //Post: Eliminar una arista entre los vértices primero y destino
-    void eliminarConexion(string origen, string destino);
+    void eliminarConexion(const string& origen, const string& destino);
 
     //Post: Elimitar todos los vertices y aristas del grafo
     void eliminarGrafo();
 
     /*
      * Pre: El grafo debe estar cargado
-     * Post: Elimina todas las conexiones del nodo
-     * @arg nodo: nodo a eliminar
+     * Post: Elimina todas las conexiones de la ciudad
+     * @arg ciudad: ciudad a eliminar
      */
 
-    static void eliminarConexionesNodo(Vertice *nodo);
+    static void eliminarConexionesCiudad(Vertice *ciudad);
     /*
      * Post: Elimina las aristas destino del vertice
-     * Eliminta todas las conexiones del vertice con los demas vertices
+     * Eliminta todas las conexiones del vertice con los demás vertices
      * @arg destino: vertice destino
      */
-    void eliminarConexionesDestino(string destino);
+    void eliminarConexionesDestino(const string& destino);
+
+    void reocorridoDijkstra(const string& origen);
 
 };
 

@@ -12,17 +12,14 @@ int main() {
     grafo->insertarCuidad("San Juan");
 
     grafo->insertarViaje("Buenos Aires", "Rosario", 100, 100);
-    grafo->insertarViaje("Buenos Aires", "Cordoba", 100, 100);
-    grafo->insertarViaje("Buenos Aires", "Mendoza", 100, 100);
-    grafo->insertarViaje("Rosario", "Cordoba", 100, 100);
-    grafo->insertarViaje("Rosario", "Mendoza", 100, 100);
-    grafo->insertarViaje("Rosario", "Buenos Aires", 100, 100);
-    grafo->insertarViaje("Cordoba", "Buenos Aires", 100, 100);
+    grafo->insertarViaje("Buenos Aires", "Cordoba", 5, 100);
+    grafo->insertarViaje("Buenos Aires", "Mendoza", 6, 100);
+    grafo->insertarViaje("Rosario", "Cordoba", 2, 100);
+    grafo->insertarViaje("Rosario", "Mendoza", 3, 100);
+    grafo->insertarViaje("Rosario", "Buenos Aires", 10, 100);
+    grafo->insertarViaje("Cordoba", "Buenos Aires", 20, 100);
 
 
-    grafo->insertarCuidad("Formosa");
-    cout << grafo->obtenerTamanio();
-    grafo->eliminarGrafo();
-
+    grafo->reocorridoDijkstra("Cordoba");
     return 0;
 }
