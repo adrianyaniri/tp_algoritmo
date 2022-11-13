@@ -58,8 +58,7 @@ public:
      */
     void eliminarConexionesDestino(const string &destino);
 
-    void reocorridoDijkstra(const string &origen);
-
+    void Dijkstra(const string& origen, const string& destino);
 };
 
 

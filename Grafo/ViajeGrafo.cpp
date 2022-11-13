@@ -3,17 +3,15 @@
 //
 
 #include <iostream>
-#include <map>
-#include <limits>
 #include <algorithm>
-#include <vector>
-#include <queue>
 #include <list>
+#include <map>
 #include "ViajeGrafo.h"
 
-using namespace std;
 
-#define INFINITO 1000000000
+const int MAX = 100000000;
+
+using namespace std;
 
 ViajeGrafo::ViajeGrafo() {
     primero = nullptr;
@@ -239,7 +237,7 @@ void ViajeGrafo::eliminarCiudad(const std::string& nombre) {
     }
 }
 
-//Post: Elimina todas la cuidades (vertices) del grafo
+//Post: Elimina toda la cuidades (vertices) del grafo
 void ViajeGrafo::eliminarGrafo() {
     Vertice* actual = primero;
 
@@ -310,110 +308,124 @@ void ViajeGrafo::eliminarConexionesDestino(const string& destino) {
     }
 }
 
-/*
- * Función auxiliar para obtener el costo minimo
- * Compara el costo de dos ciudades y retorna la ciudad con el costo minimo
- */
-
-bool costoMinimo(const pair<Vertice*, int>& a, const pair<Vertice*, int>& b){
+bool CostoMinimo(const pair<Vertice*, int>& a, const pair<Vertice*, int>& b) {
     return a.second < b.second;
 }
 
+void ViajeGrafo::Dijkstra(const string& origen, const string& destino)
+{
+    Vertice* vorigen = obtenerCiudad(origen);
+    Vertice* vdestino = obtenerCiudad(destino);
 
-// Post: Encuentra la ruta más corta entre dos ciudades (vertices)
-void ViajeGrafo::reocorridoDijkstra(const string &origen) {
+    // Verifica si existe el origen y el destino
+    if (vorigen == nullptr )
+        cout << "La cuidad origen no existe" << endl;
 
-    //Obtiene la ciudad de origen donde se va a iniciar el recorrido
-    Vertice* ciudadOrigen = obtenerCiudad(origen);
 
-    //Válida que la ciudad de origen exista
-    if(ciudadOrigen == nullptr){
-        cout << "La ciudad de origen no existe" << endl;
-        return;
-    }
-    else{
+
+    else
+    {
         /*
-         * 1. Inicializa las distancias de todas las ciudades con un valor infinito
-         * 2. Inicializa la distancia de la ciudad de origen con un valor de 0
-         * Se utiliza map para crear la matriz para almacenar las distancias y los vertices visitados
+         * 1. Crea una matriz de pares (Vertice, int) para almacenar los vertices
+         * 2. Genera una matriz de pares (Vertice, bool) para almacenar los vertices visitados
+         * 3. Genera una matriz de pares (Vertice, Vertice) para almacenar las rutas
+         * 4. Crea una matriz de pares (Vertice, int) para almacenar las distancias
          */
         map<Vertice*, map<Vertice*, int>> matriz;
-        map<Vertice*, bool> visitados;   // Mapa para almacenar los vertices visitados
-        map<Vertice*, Vertice*> rutas;  // Almacena las rutas de las ciudades
-        map<Vertice*, int> distancias;  // Almacena las distancias de las ciudades
-        map<Vertice* ,int> cola;  // Ciudades pendientes a visitar --Cambiar por una implementation de cola propia
+        map<Vertice*, bool> visitados;
+        map<Vertice*, Vertice*> rutas;
+        map<Vertice*, int> cola;
+        map<Vertice*, int> distancias;
 
-        // Inicializa la matriz con los pesos y ciudades
-        Vertice* actual = primero;
+        Vertice* vi = primero;
 
-        while(actual != nullptr){
+        /*
+         * 1. Inicializa la matriz de visitados en falso
+         * 2. Inicializa la matriz de distancias en infinito
+         * 3. Inicializa la matriz de rutas en nullptr
+         * @param vi: Vertices(ciudad) actual
+         * @param vj: Vertices(ciudad) destino
+         */
+        while (vi != nullptr)
+        {
+            visitados[vi] = false;
+            rutas[vi] = nullptr;
+            distancias[vi] = MAX;
 
-            // Recorre las Filas de la matriz
-            visitados[actual] = false;      // Inicializa todas las ciudades como no visitadas
-            rutas[actual] = nullptr;        // Inicializa todas las rutas como nulas
-            distancias[actual] = INFINITO;   // Inicializa todas las distancias como infinito
+            Vertice* vj = primero;
 
-            // Recorre las columnas de la matriz
-             Vertice* aux = primero;
+            while (vj != nullptr)
+            {
+                matriz[vi][vj] = MAX;
+                vj = vj->sig;
+            }
 
-             while(aux != nullptr){
+            Arista* aj = vi->arista;
 
-                 matriz[actual][aux] = INFINITO;  // Inicializa todas las distancias como infinito
-                 aux = aux->sig;
-             }
-             // Recorre las conexiones de la ciudad actual para obtener los pesos
-             Arista* arista = actual->arista;
-                while(arista != nullptr){
-                    matriz[actual][arista->destino] = arista->distancia;
-                    arista = arista->sig;
-                }
-            actual = actual->sig;
+            while (aj != nullptr)
+            {
+                matriz[vi][aj->destino] = aj->precio;
+                aj = aj->sig;
+            }
+
+            vi = vi->sig;
         }
-        distancias[ciudadOrigen] = 0;               // Inicializa la distancia de la ciudad de origen con un valor de 0
-        visitados[ciudadOrigen] = true;             // Pone a la ciudad de origen como visitada
-        cola[ciudadOrigen] = distancias[ciudadOrigen];         // Agrega la ciudad de origen a la cola de ciudades pendientes
 
-        // Procesa la ciudad actual
-        while(!cola.empty()){
-            // Obtiene la ciudad con la distancia más corta
-            auto it= min_element(cola.begin(), cola.end(), costoMinimo);
-            visitados[it->first] = true;            // Pone la ciudad actual como visitada
+        distancias[vorigen] = 0;
+        visitados[vorigen] = true;
+        cola[vorigen] = distancias[vorigen];
 
-            // Recorre las conexiones de la ciudad actual
-            Arista* arista = it->first->arista;
-            while (arista != nullptr){
+        while (!cola.empty())
+        {
+            // Encuentra el vertice con el costo menor en la cola
+            map<Vertice*, int>::iterator iter = min_element(cola.begin(), cola.end(), CostoMinimo);
+            visitados[iter->first] = true;
 
-                // Si la ciudad destino no ha sido visitada
-                if(!visitados[arista->destino]){
-                    if(distancias[arista->destino] > distancias[it->first] + matriz[it->first][arista->destino]){
-                        distancias[arista->destino] = distancias[it->first] + matriz[it->first][arista->destino];
-                        rutas[arista->destino] = it->first;
-                        cola[arista->destino] = distancias[arista->destino];
+            // Recorre todos los vertices(ciudades) que tiene como destino
+            Arista* ai = iter->first->arista;       // Arista(destino primero de la lista) actual
+
+            while (ai != nullptr)
+            {
+                // Si el vertice(ciudad) destino no ha sido visitado
+                if (!visitados[ai->destino])
+                {
+                    // Si la distancia es menor a la distancia actual
+                    if (distancias[ai->destino] > distancias[iter->first] + matriz[iter->first][ai->destino])
+                    {
+                        // Actualiza la distancia
+                        distancias[ai->destino] = distancias[iter->first] + matriz[iter->first][ai->destino];
+                        rutas[ai->destino] = iter->first;
+                        cola[ai->destino] = distancias[ai->destino];
                     }
                 }
-                arista = arista->sig;
+                ai = ai->sig;
             }
-            cola.erase(it->first);
-        }
-        // Imprime las distancias de las ciudades
-        for(map<Vertice*, int>::iterator it = distancias.begin(); it != distancias.end(); it++){
-            cout << "Distancia de " << ciudadOrigen->nombre << " a " << it->first->nombre << " es " << it->second << endl;
+
+            cola.erase(iter->first);
         }
 
-        for(auto it = rutas.begin(); it != rutas.end(); it++){
+        // Muestra todos los viajes con sus respectivos precios
+        for (map<Vertice*, int>::iterator i = distancias.begin(); i != distancias.end(); i++)
+            cout << i->first->nombre << ": " << i->second << endl;
 
-            Vertice* ciudadActual = it->first;
-            cout << "Ruta de " << ciudadOrigen->nombre;
-            while(ciudadActual != nullptr){
-                cout << ciudadActual->nombre << " ->";
-                ciudadActual = rutas[ciudadActual];
+        // Muestra el viaje con el menor costo y su precio
+        for(map<Vertice*, Vertice*>::iterator i = rutas.begin(); i != rutas.end(); i++)
+        {
+            if (i->first == vdestino)
+            {
+                cout << "El viaje mas barato es: " << endl;
+                cout << i->first->nombre << " <-- ";
+
+                while (i->second != nullptr)
+                {
+                    cout << i->second->nombre << " <-- ";
+                    i->second = rutas[i->second];
+                }
+
+                cout << endl << "Precio: " << distancias[vdestino] << endl;
+                break;
             }
-            cout << endl;
         }
+
     }
 }
-
-
-
-
-
