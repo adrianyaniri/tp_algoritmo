@@ -91,6 +91,12 @@ build CMakeFiles/estructurasDatos.dir/Hash/Terminales.cpp.o: CXX_COMPILER__estru
   OBJECT_DIR = CMakeFiles/estructurasDatos.dir
   OBJECT_FILE_DIR = CMakeFiles/estructurasDatos.dir/Hash
 
+build CMakeFiles/estructurasDatos.dir/Menu/Menu.cpp.o: CXX_COMPILER__estructurasDatos_Debug /home/home/CLionProjects/estructurasDatos/Menu/Menu.cpp || cmake_object_order_depends_target_estructurasDatos
+  DEP_FILE = CMakeFiles/estructurasDatos.dir/Menu/Menu.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/estructurasDatos.dir
+  OBJECT_FILE_DIR = CMakeFiles/estructurasDatos.dir/Menu
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target estructurasDatos
@@ -99,7 +105,7 @@ build CMakeFiles/estructurasDatos.dir/Hash/Terminales.cpp.o: CXX_COMPILER__estru
 #############################################
 # Link the executable estructurasDatos
 
-build estructurasDatos: CXX_EXECUTABLE_LINKER__estructurasDatos_Debug CMakeFiles/estructurasDatos.dir/main.cpp.o CMakeFiles/estructurasDatos.dir/ListaEnlazada/Nodo.cpp.o CMakeFiles/estructurasDatos.dir/ListaEnlazada/Lista.cpp.o CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.o CMakeFiles/estructurasDatos.dir/Grafo/Vertice.cpp.o CMakeFiles/estructurasDatos.dir/Grafo/Arista.cpp.o CMakeFiles/estructurasDatos.dir/Hash/Terminales.cpp.o
+build estructurasDatos: CXX_EXECUTABLE_LINKER__estructurasDatos_Debug CMakeFiles/estructurasDatos.dir/main.cpp.o CMakeFiles/estructurasDatos.dir/ListaEnlazada/Nodo.cpp.o CMakeFiles/estructurasDatos.dir/ListaEnlazada/Lista.cpp.o CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.o CMakeFiles/estructurasDatos.dir/Grafo/Vertice.cpp.o CMakeFiles/estructurasDatos.dir/Grafo/Arista.cpp.o CMakeFiles/estructurasDatos.dir/Hash/Terminales.cpp.o CMakeFiles/estructurasDatos.dir/Menu/Menu.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/estructurasDatos.dir
   POST_BUILD = :

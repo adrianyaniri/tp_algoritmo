@@ -21,7 +21,7 @@ void Lista::insertar(Dato dato, Nodo *nodo) {
 
 /*
  * Post: Imprime los datos del nodo actual
- * @param nodo: nodo a imprimir
+ * @param nodo: nodo a imprimirTerminales
  */
 void Lista::imprimir(Nodo *nodo) {
     if( nodo != nullptr)
@@ -35,7 +35,7 @@ void Lista::imprimir(Nodo *nodo) {
 /*
  * Post: elimina el nodo de la lista
  * @param nodo: nodo a eliminar
- * @param dato: dato a eliminar
+ * @param dato: dato a eliminarTerminal
  */
 void Lista::eliminar(Nodo *nodo, Dato dato) {
     if(nodo == nullptr)

@@ -1,0 +1,14 @@
+# ninja log v5
+1	23	1668444146722589038	CMakeFiles/estructurasDatos.dir/Grafo/Arista.cpp.o	74077eb00788998
+1	204	1668444146902589041	CMakeFiles/estructurasDatos.dir/Grafo/Vertice.cpp.o	464af8174871f73c
+1	269	1668444146966589043	CMakeFiles/estructurasDatos.dir/ListaEnlazada/Nodo.cpp.o	9b2b2886a8da4eec
+1	286	1668444146986589043	CMakeFiles/estructurasDatos.dir/ListaEnlazada/Lista.cpp.o	f7ea8345cad597ab
+0	362	1668444147062589045	CMakeFiles/estructurasDatos.dir/main.cpp.o	a38870910c7b1de6
+23	406	1668444147102589046	CMakeFiles/estructurasDatos.dir/Hash/Terminales.cpp.o	b8d47db8ea2e8f32
+204	499	1668444147198589048	CMakeFiles/estructurasDatos.dir/Menu/Menu.cpp.o	ac14e7f34562e2de
+0	755	1668444147454589053	CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.o	a45d4f486f4b37ef
+755	820	1668444147518589055	estructurasDatos	ff594167b66dbbba
+0	217	1668444196010590101	CMakeFiles/estructurasDatos.dir/main.cpp.o	a38870910c7b1de6
+217	283	1668444196074590102	estructurasDatos	ff594167b66dbbba
+1	216	1668444212930590466	CMakeFiles/estructurasDatos.dir/main.cpp.o	a38870910c7b1de6
+216	291	1668444213006590468	estructurasDatos	ff594167b66dbbba

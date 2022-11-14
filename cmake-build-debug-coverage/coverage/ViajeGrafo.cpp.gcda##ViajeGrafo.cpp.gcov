@@ -1,0 +1,1029 @@
+        -:    0:Source:/home/home/CLionProjects/estructurasDatos/Grafo/ViajeGrafo.cpp
+        -:    0:Graph:/home/home/CLionProjects/estructurasDatos/cmake-build-debug-coverage/CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.gcno
+        -:    0:Data:/home/home/CLionProjects/estructurasDatos/cmake-build-debug-coverage/CMakeFiles/estructurasDatos.dir/Grafo/ViajeGrafo.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by home on 9/11/22.
+        -:    3://
+        -:    4:
+        -:    5:#include <iostream>
+        -:    6:#include <algorithm>
+        -:    7:#include <list>
+        -:    8:#include <map>
+        -:    9:#include "ViajeGrafo.h"
+        -:   10:
+        -:   11:
+        -:   12:const int MAX = 100000000;
+        -:   13:
+        -:   14:using namespace std;
+        -:   15:
+function _ZN10ViajeGrafoC2Ev called 0 returned 0% blocks executed 0%
+    #####:   16:ViajeGrafo::ViajeGrafo() {
+    #####:   17:    primero = nullptr;
+    #####:   18:    tamanio = 0;
+    #####:   19:}
+        -:   20:
+function _ZN10ViajeGrafo9estaVacioEv called 0 returned 0% blocks executed 0%
+    #####:   21:bool ViajeGrafo::estaVacio() {
+    #####:   22:    return primero == nullptr;
+    %%%%%:   22-block  0
+        -:   23:}
+        -:   24:
+        -:   25:
+        -:   26://Post: retorna el total de todos los nodos del grafo
+function _ZNK10ViajeGrafo14obtenerTamanioEv called 0 returned 0% blocks executed 0%
+    #####:   27:int ViajeGrafo::obtenerTamanio() const {
+    #####:   28:   return tamanio;
+    %%%%%:   28-block  0
+        -:   29:}
+        -:   30:
+function _ZN10ViajeGrafo13obtenerCiudadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   31:Vertice *ViajeGrafo::obtenerCiudad(const string& nombre) {
+    #####:   32:    Vertice *aux = primero;  // aux apunta al primer vértice
+        -:   33:
+    #####:   34:    while (aux != nullptr) {
+    %%%%%:   34-block  0
+    %%%%%:   34-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:   35:        if (aux->nombre == nombre) {
+    %%%%%:   35-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    #####:   36:            return aux;
+    %%%%%:   36-block  0
+        -:   37:        }
+    #####:   38:        aux = aux->sig;
+    %%%%%:   38-block  0
+        -:   39:    }
+    #####:   40:    return nullptr;
+    %%%%%:   40-block  0
+        -:   41:}
+        -:   42:/*
+        -:   43: * Post: Inserta una ciudad (vertice) en el grafo
+        -:   44: * @arg nombre: nombre de la ciudad
+        -:   45: */
+        -:   46:
+function _ZN10ViajeGrafo14insertarCuidadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   47:void ViajeGrafo::insertarCuidad(const string& nombre) {
+        -:   48:    // Busca si la ciudad ya existe
+    #####:   49:    if(obtenerCiudad(nombre) == nullptr){
+    %%%%%:   49-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    #####:   50:        Vertice *nuevo = new Vertice(nombre);
+    %%%%%:   50-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+    %%%%%:   50-block  1
+la llamada  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+la ramificacion  6 nunca se ejecuta
+    %%%%%:   50-block  2
+la llamada  7 nunca se ejecuta
+    $$$$$:   50-block  3
+la llamada  8 nunca se ejecuta
+    $$$$$:   50-block  4
+    $$$$$:   50-block  5
+la ramificacion  9 nunca se ejecuta
+la ramificacion 10 nunca se ejecuta
+    $$$$$:   50-block  6
+la llamada 11 nunca se ejecuta
+        -:   51:
+        -:   52:        // Si el grafo está vacío inserto el primer vértice
+    #####:   53:        if(estaVacio())
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    #####:   54:            primero = nuevo;
+    %%%%%:   54-block  0
+        -:   55:
+        -:   56:        // Si el grafo no está vacío inserto el vértice al final
+        -:   57:        else{
+    #####:   58:            Vertice *aux = primero;
+    #####:   59:            while(aux->sig != nullptr)
+    %%%%%:   59-block  0
+    %%%%%:   59-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:   60:                aux = aux->sig;
+    %%%%%:   60-block  0
+    #####:   61:            aux->sig = nuevo;
+    %%%%%:   61-block  0
+        -:   62:        }
+    #####:   63:        tamanio++;
+    %%%%%:   63-block  0
+        -:   64:    }
+        -:   65:    else{
+    #####:   66:        cout << "La ciudad ya esta cargada " << endl;
+    %%%%%:   66-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+        -:   67:    }
+    #####:   68:}
+    %%%%%:   68-block  0
+        -:   69:
+        -:   70:/*
+        -:   71: * Pre: Inserta una conexion(arista) entre el origen y el destino
+        -:   72: * @param origen: nombre del origen
+        -:   73: * @param destino: nombre del destino
+        -:   74: * @param precio: precio del viaje
+        -:   75: * @param distancia: distancia del viaje
+        -:   76: */
+function _ZN10ViajeGrafo13insertarViajeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ii called 0 returned 0% blocks executed 0%
+    #####:   77:void ViajeGrafo::insertarViaje(const string& origen, const string& destino, int precio, int distancia) {
+        -:   78:
+    #####:   79:    Vertice* vOrigen = obtenerCiudad(origen);
+    %%%%%:   79-block  0
+la llamada  0 nunca se ejecuta
+    #####:   80:    Vertice* vDestino = obtenerCiudad(destino);
+la llamada  0 nunca se ejecuta
+        -:   81:
+    #####:   82:    if(vOrigen == nullptr){
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:   83:        cout << "Es lugar de origen no existe " << endl;   // Si el origen no existe
+    %%%%%:   83-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+        -:   84:    }
+    #####:   85:    if(vDestino == nullptr){
+    %%%%%:   85-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:   86:        cout << "Es lugar de destino no existe " << endl;  // Si el destino no existe
+    %%%%%:   86-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+        -:   87:    }
+        -:   88:    /*
+        -:   89:     * Si existe el origen y el destino
+        -:   90:     * Inserta un viaje (arista-conexion) entre el origen y el destino
+        -:   91:     */
+    #####:   92:    if(vOrigen != nullptr && vDestino != nullptr){
+    %%%%%:   92-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:   92-block  1
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+        -:   93:
+    #####:   94:        Arista* nueva = new Arista(vDestino, precio, distancia);
+    %%%%%:   94-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+    $$$$$:   94-block  1
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+    $$$$$:   94-block  2
+la llamada  6 nunca se ejecuta
+        -:   95:
+        -:   96:        /*
+        -:   97:         * Si la ciudad (vertice) tiene viajes (conexiones-aristas), se inserta al final de la lista
+        -:   98:         */
+    #####:   99:        if(vOrigen->arista == nullptr){
+    %%%%%:   99-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  100:            vOrigen->arista = nueva;
+    %%%%%:  100-block  0
+        -:  101:        }
+        -:  102:        /*
+        -:  103:         * Si el vértice origen no tiene aristas, se inserta al principio de la lista
+        -:  104:         */
+        -:  105:        else{
+    #####:  106:            Arista* aux = vOrigen->arista;
+    #####:  107:            while(aux->sig != nullptr)
+    %%%%%:  107-block  0
+    %%%%%:  107-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  108:                aux = aux->sig;
+    %%%%%:  108-block  0
+    #####:  109:            aux->sig = nueva;
+    %%%%%:  109-block  0
+        -:  110:        }
+        -:  111:    }
+    #####:  112:}
+    %%%%%:  112-block  0
+        -:  113:/*
+        -:  114: * Post: Muestra la lista de adyacencia
+        -:  115: * Recorre los vertices del grafo y muestra las conexiones
+        -:  116: * Imprime el nombre del origen del nodo en que se está recorriendo
+        -:  117: * También imprime el destino, precio y distancia de cada connexion
+        -:  118: */
+function _ZN10ViajeGrafo20mostrarListaDestinosEv called 0 returned 0% blocks executed 0%
+    #####:  119:void ViajeGrafo::mostrarListaDestinos() {
+    #####:  120:    Vertice* actual= primero;
+        -:  121:
+        -:  122:
+        -:  123:    // Recorre los vertices
+    #####:  124:    while(actual != nullptr){
+    %%%%%:  124-block  0
+    %%%%%:  124-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  125:        Arista* aux = actual->arista;
+    #####:  126:        cout << "Origen: " << actual->nombre << endl;
+    %%%%%:  126-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+        -:  127:
+        -:  128:        // Recorre las aristas de cada vertice
+    #####:  129:        while (aux != nullptr){
+    %%%%%:  129-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  130:            cout << "Destino: " << " --> "  << aux->destino->nombre << endl;
+    %%%%%:  130-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+    #####:  131:            cout << "Precio: $" << aux->precio << "   "<< "Distancia: " << aux->distancia<< "Kms" << endl;
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la llamada  4 nunca se ejecuta
+la llamada  5 nunca se ejecuta
+la llamada  6 nunca se ejecuta
+    #####:  132:            aux = aux->sig;
+    #####:  133:            cout << endl;
+la llamada  0 nunca se ejecuta
+        -:  134:        }
+    #####:  135:        cout<< "*************"<< endl;
+    %%%%%:  135-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+    #####:  136:        actual = actual->sig;
+        -:  137:    }
+    #####:  138:}
+        -:  139:
+        -:  140:/*
+        -:  141: * Post: Elinina un las conexiones de una ciudad
+        -:  142: */
+function _ZN10ViajeGrafo16eliminarConexionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ called 0 returned 0% blocks executed 0%
+    #####:  143:void ViajeGrafo::eliminarConexion(const string& origen, const string& destino) {
+        -:  144:
+    #####:  145:    Vertice* vOrigen = obtenerCiudad(origen);
+    %%%%%:  145-block  0
+la llamada  0 nunca se ejecuta
+    #####:  146:    Vertice* vDestino = obtenerCiudad(destino);
+la llamada  0 nunca se ejecuta
+        -:  147:
+    #####:  148:    if (vOrigen == nullptr ){
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  149:        cout << "el origen no existe " << endl; // Si el origen no existe
+    %%%%%:  149-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+        -:  150:    }
+    #####:  151:    if( vDestino == nullptr){
+    %%%%%:  151-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  152:        cout << "el destino no existe " << endl;  // Si el destino no existe
+    %%%%%:  152-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+        -:  153:    }
+    #####:  154:    if (vOrigen != nullptr && vDestino != nullptr){
+    %%%%%:  154-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  154-block  1
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+        -:  155:
+        -:  156:        // Si es la primera conexion (viaje) a eliminarTerminal
+    #####:  157:        vOrigen->arista->destino = vDestino;
+    #####:  158:        if(vOrigen->arista->destino){
+    %%%%%:  158-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  159:            Arista* aux = vOrigen->arista;
+    #####:  160:            vOrigen->arista = vOrigen->arista->sig;
+    #####:  161:            cout << "Se eliminino la conexion" << origen << " --> " << destino  << endl;
+    %%%%%:  161-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la llamada  4 nunca se ejecuta
+    #####:  162:            delete aux;
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  162-block  0
+la llamada  2 nunca se ejecuta
+        -:  163:        }
+        -:  164:
+        -:  165:        // Si no es la primera conexion (viaje) a eliminarTerminal
+        -:  166:
+        -:  167:        else{
+    #####:  168:            Arista* actual = vOrigen->arista;
+    #####:  169:            Arista* sig = actual->sig;;
+        -:  170:
+        -:  171:            // Recorre hasta encontrar la conexion a eliminarTerminal (viaje)
+    #####:  172:            while (sig != nullptr){
+    %%%%%:  172-block  0
+    %%%%%:  172-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+        -:  173:
+    #####:  174:                if(sig->destino == vDestino){
+    %%%%%:  174-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  175:                    actual->sig = sig->sig;
+    #####:  176:                    cout << "Se eliminino " << origen << "-->" << destino  << endl;
+    %%%%%:  176-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la llamada  4 nunca se ejecuta
+    #####:  177:                    delete sig;
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  177-block  0
+la llamada  2 nunca se ejecuta
+    #####:  178:                    break;
+    %%%%%:  178-block  0
+        -:  179:                }
+    #####:  180:                actual = sig;
+    #####:  181:                sig = sig->sig;
+    %%%%%:  181-block  0
+        -:  182:            }
+        -:  183:        }
+        -:  184:    }
+    #####:  185:}
+        -:  186:
+        -:  187:/*
+        -:  188: * Post: Elimina una Ciudad (vertice) y todos sus viajes (aristas-conexiones)
+        -:  189: */
+function _ZN10ViajeGrafo14eliminarCiudadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:  190:void ViajeGrafo::eliminarCiudad(const std::string& nombre) {
+        -:  191:    /*
+        -:  192:     * Si es la primera ciudad a eliminarTerminal del grafo
+        -:  193:     * 1. Elimina todas las conexiones de la ciudad
+        -:  194:     * 2. Elimina la ciudad
+        -:  195:     */
+    #####:  196:    if(primero->nombre == nombre){
+    %%%%%:  196-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+        -:  197:
+    #####:  198:         Vertice* aux = primero;
+    #####:  199:         primero = primero->sig;
+    #####:  200:         eliminarConexionesCiudad(aux);
+    %%%%%:  200-block  0
+la llamada  0 nunca se ejecuta
+    #####:  201:         eliminarConexionesDestino(aux->nombre);
+la llamada  0 nunca se ejecuta
+    #####:  202:         cout << "Se elimino la cuidad " << nombre << endl;
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+    #####:  203:         delete aux;
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  203-block  0
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+    #####:  204:         tamanio--;
+    %%%%%:  204-block  0
+        -:  205:    }
+        -:  206:    /*
+        -:  207:     * Si se quiere eliminarTerminal una ciudad que no es la primera
+        -:  208:     * 1. Elimina todas las conexiones de la ciudad
+        -:  209:     * 2. Ligar la ciudad anterior con el siguiente para no perder la referencia
+        -:  210:     * 3. Elimina la ciudad
+        -:  211:     */
+        -:  212:    else{
+        -:  213:        // Recorre el grafo hasta encontrar el nodo
+    #####:  214:        Vertice* actual = primero;
+    #####:  215:        Vertice* aux = actual->sig;
+    #####:  216:        bool existe = false;    // Verifica si la ciudad existe en el grafo -- default: false
+        -:  217:
+    #####:  218:        while(aux != nullptr){
+    %%%%%:  218-block  0
+    %%%%%:  218-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  219:            if(aux->nombre == nombre){
+    %%%%%:  219-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+        -:  220:
+    #####:  221:                actual->sig = aux->sig;actual->sig = aux->sig;
+    #####:  222:                eliminarConexionesCiudad(aux);
+    %%%%%:  222-block  0
+la llamada  0 nunca se ejecuta
+    #####:  223:                eliminarConexionesDestino(aux->nombre);
+la llamada  0 nunca se ejecuta
+    #####:  224:                actual->sig = aux->sig;
+    #####:  225:                cout << "Se elimino el Nodo" << nombre << endl;
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+    #####:  226:                delete aux;
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  226-block  0
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+    #####:  227:                tamanio--;
+    #####:  228:                existe = true; // True cuando elimina el nodo
+    #####:  229:                break;
+    %%%%%:  229-block  0
+        -:  230:
+        -:  231:            }
+    #####:  232:            actual = actual->sig; // aux;
+    #####:  233:            aux = aux->sig;
+    %%%%%:  233-block  0
+        -:  234:        }
+    #####:  235:        if(!existe)
+    %%%%%:  235-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  236:            cout << "El Nodo no existe" << endl;
+    %%%%%:  236-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+        -:  237:    }
+    #####:  238:}
+        -:  239:
+        -:  240://Post: Elimina toda la cuidades (vertices) del grafo
+function _ZN10ViajeGrafo13eliminarGrafoEv called 0 returned 0% blocks executed 0%
+    #####:  241:void ViajeGrafo::eliminarGrafo() {
+    #####:  242:    Vertice* actual = primero;
+        -:  243:
+    #####:  244:    while(primero != nullptr){
+    %%%%%:  244-block  0
+    %%%%%:  244-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  245:        actual = primero;
+    #####:  246:        primero = primero->sig;
+    #####:  247:        eliminarConexionesCiudad(actual);
+    %%%%%:  247-block  0
+la llamada  0 nunca se ejecuta
+        -:  248:
+    #####:  249:        cout << "Se elimino el destino " << actual->nombre << endl;
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+    #####:  250:        delete actual;
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  250-block  0
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+    #####:  251:        tamanio--;
+    %%%%%:  251-block  0
+        -:  252:    }
+    #####:  253:}
+        -:  254:
+        -:  255:// Elimina todas las conexiones de una ciudad(vertice)
+function _ZN10ViajeGrafo24eliminarConexionesCiudadEP7Vertice called 0 returned 0% blocks executed 0%
+    #####:  256:void ViajeGrafo::eliminarConexionesCiudad(Vertice *ciudad) {
+        -:  257:
+    #####:  258:    if(ciudad == nullptr)
+    %%%%%:  258-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  259:        return;
+    %%%%%:  259-block  0
+        -:  260:
+        -:  261:    Arista* aux;
+        -:  262:
+    #####:  263:    while(ciudad->arista != nullptr){
+    %%%%%:  263-block  0
+    %%%%%:  263-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+        -:  264:
+    #####:  265:        aux = ciudad->arista; // aux apunta al la conexion(viaje) a eliminarTerminal
+    #####:  266:        ciudad->arista = ciudad->arista->sig;   // Apunta a la siguiente connexion de la ciudad a eliminarTerminal
+    #####:  267:        cout << "Eliminan conexion  " << ciudad->nombre
+    #####:  268:             << "-->" << aux->destino->sig << " eliminado " << endl;
+    %%%%%:  268-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la llamada  4 nunca se ejecuta
+la llamada  5 nunca se ejecuta
+    #####:  269:        delete aux;
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  269-block  0
+la llamada  2 nunca se ejecuta
+        -:  270:    }
+        -:  271:}
+        -:  272:// Post: Elimina todas las conexiones que apuntan a una ciudad (vertice)
+function _ZN10ViajeGrafo25eliminarConexionesDestinoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:  273:void ViajeGrafo::eliminarConexionesDestino(const string& destino) {
+        -:  274:
+    #####:  275:    Vertice* actual = primero;
+        -:  276:
+    #####:  277:    while (actual != nullptr){
+    %%%%%:  277-block  0
+    %%%%%:  277-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  278:        if(actual->nombre == destino || actual->arista == nullptr){
+    %%%%%:  278-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  278-block  1
+la ramificacion  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+    %%%%%:  278-block  2
+    %%%%%:  278-block  3
+    %%%%%:  278-block  4
+la ramificacion  5 nunca se ejecuta
+la ramificacion  6 nunca se ejecuta
+    #####:  279:            actual = actual->sig;
+    #####:  280:            continue;
+    %%%%%:  280-block  0
+        -:  281:        }
+        -:  282:        // Si es la primera conexion a eliminarTerminal de la lista del destino
+    #####:  283:        if( actual->arista->destino->nombre == destino ){
+    %%%%%:  283-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+        -:  284:
+    #####:  285:            Arista* aux = actual->arista;
+    #####:  286:            actual->arista = actual->arista->sig;
+    #####:  287:            cout << "Eliminando Conexion : " << actual->nombre << "-->" << destino << endl;
+    %%%%%:  287-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la llamada  4 nunca se ejecuta
+    #####:  288:            delete aux;
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  288-block  0
+la llamada  2 nunca se ejecuta
+        -:  289:        }
+        -:  290:        else{
+    #####:  291:            Arista* actualArista = actual->arista;
+    #####:  292:            Arista* aristaSig = actualArista->sig;
+        -:  293:
+    #####:  294:            while (aristaSig != nullptr){
+    %%%%%:  294-block  0
+    %%%%%:  294-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+        -:  295:
+    #####:  296:               if(aristaSig->destino->nombre == destino){
+    %%%%%:  296-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+        -:  297:
+    #####:  298:                   actualArista->sig = aristaSig->sig;
+    #####:  299:                   cout << "Eliminando conexion : " << actual->nombre << "-->" << destino << endl;
+    %%%%%:  299-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la llamada  4 nunca se ejecuta
+    #####:  300:                   delete aristaSig;
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    %%%%%:  300-block  0
+la llamada  2 nunca se ejecuta
+        -:  301:
+        -:  302:               }
+    #####:  303:               actualArista = aristaSig;
+    #####:  304:               aristaSig = aristaSig->sig;
+    %%%%%:  304-block  0
+        -:  305:            }
+        -:  306:        }
+    #####:  307:        actual = actual->sig;
+    %%%%%:  307-block  0
+        -:  308:    }
+    #####:  309:}
+        -:  310:
+function _Z11CostoMinimoRKSt4pairIP7VerticeiES4_ called 0 returned 0% blocks executed 0%
+    #####:  311:bool CostoMinimo(const pair<Vertice*, int>& a, const pair<Vertice*, int>& b) {
+    #####:  312:    return a.second < b.second;
+    %%%%%:  312-block  0
+        -:  313:}
+        -:  314:
+function _ZN10ViajeGrafo8DijkstraERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ called 0 returned 0% blocks executed 0%
+    #####:  315:void ViajeGrafo::Dijkstra(const string& origen, const string& destino)
+        -:  316:{
+    #####:  317:    Vertice* vorigen = obtenerCiudad(origen);
+    %%%%%:  317-block  0
+la llamada  0 nunca se ejecuta
+    #####:  318:    Vertice* vdestino = obtenerCiudad(destino);
+la llamada  0 nunca se ejecuta
+        -:  319:
+        -:  320:    // Verifica si existe el origen y el destino
+    #####:  321:    if (vorigen == nullptr )
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+    #####:  322:        cout << "La cuidad origen no existe" << endl;
+    %%%%%:  322-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  322-block  1
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+        -:  323:
+        -:  324:
+        -:  325:
+        -:  326:    else
+        -:  327:    {
+        -:  328:        /*
+        -:  329:         * 1. Crea una matriz de pares (Vertice, int) para almacenar los vertices
+        -:  330:         * 2. Genera una matriz de pares (Vertice, bool) para almacenar los vertices visitados
+        -:  331:         * 3. Genera una matriz de pares (Vertice, Vertice) para almacenar las rutas
+        -:  332:         * 4. Crea una matriz de pares (Vertice, int) para almacenar las distancias
+        -:  333:         */
+    #####:  334:        map<Vertice*, map<Vertice*, int>> matriz;
+    %%%%%:  334-block  0
+la llamada  0 nunca se ejecuta
+    #####:  335:        map<Vertice*, bool> visitados;
+la llamada  0 nunca se ejecuta
+    #####:  336:        map<Vertice*, Vertice*> rutas;
+la llamada  0 nunca se ejecuta
+    #####:  337:        map<Vertice*, int> cola;
+la llamada  0 nunca se ejecuta
+    #####:  338:        map<Vertice*, int> distancias;
+la llamada  0 nunca se ejecuta
+        -:  339:
+    #####:  340:        Vertice* vi = primero;
+        -:  341:
+        -:  342:        /*
+        -:  343:         * 1. Inicializa la matriz de visitados en falso
+        -:  344:         * 2. Inicializa la matriz de distancias en infinito
+        -:  345:         * 3. Inicializa la matriz de rutas en nullptr
+        -:  346:         * @param vi: Vertices(ciudad) actual
+        -:  347:         * @param vj: Vertices(ciudad) destino
+        -:  348:         */
+    #####:  349:        while (vi != nullptr)
+    %%%%%:  349-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+        -:  350:        {
+    #####:  351:            visitados[vi] = false;
+    %%%%%:  351-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    #####:  352:            rutas[vi] = nullptr;
+    %%%%%:  352-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    #####:  353:            distancias[vi] = MAX;
+    %%%%%:  353-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+        -:  354:
+    #####:  355:            Vertice* vj = primero;
+        -:  356:
+    #####:  357:            while (vj != nullptr)
+    %%%%%:  357-block  0
+    %%%%%:  357-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+        -:  358:            {
+    #####:  359:                matriz[vi][vj] = MAX;
+    %%%%%:  359-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  359-block  1
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+    #####:  360:                vj = vj->sig;
+    %%%%%:  360-block  0
+        -:  361:            }
+        -:  362:
+    #####:  363:            Arista* aj = vi->arista;
+        -:  364:
+    #####:  365:            while (aj != nullptr)
+    %%%%%:  365-block  0
+    %%%%%:  365-block  1
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+        -:  366:            {
+    #####:  367:                matriz[vi][aj->destino] = aj->precio;
+    %%%%%:  367-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  367-block  1
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+    #####:  368:                aj = aj->sig;
+    %%%%%:  368-block  0
+        -:  369:            }
+        -:  370:
+    #####:  371:            vi = vi->sig;
+    %%%%%:  371-block  0
+        -:  372:        }
+        -:  373:
+    #####:  374:        distancias[vorigen] = 0;
+    %%%%%:  374-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    #####:  375:        visitados[vorigen] = true;
+    %%%%%:  375-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    #####:  376:        cola[vorigen] = distancias[vorigen];
+    %%%%%:  376-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  376-block  1
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+        -:  377:
+    #####:  378:        while (!cola.empty())
+    %%%%%:  378-block  0
+    %%%%%:  378-block  1
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+        -:  379:        {
+        -:  380:            // Encuentra el vertice con el costo menor en la cola
+    #####:  381:            map<Vertice*, int>::iterator iter = min_element(cola.begin(), cola.end(), CostoMinimo);
+    %%%%%:  381-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+    #####:  382:            visitados[iter->first] = true;
+    %%%%%:  382-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+        -:  383:
+        -:  384:            // Recorre todos los vertices(ciudades) que tiene como destino
+    #####:  385:            Arista* ai = iter->first->arista;       // Arista(destino primero de la lista) actual
+    %%%%%:  385-block  0
+la llamada  0 nunca se ejecuta
+        -:  386:
+    #####:  387:            while (ai != nullptr)
+    %%%%%:  387-block  0
+la ramificacion  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+        -:  388:            {
+        -:  389:                // Si el vertice(ciudad) destino no ha sido visitado
+    #####:  390:                if (!visitados[ai->destino])
+    %%%%%:  390-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  390-block  1
+la ramificacion  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+        -:  391:                {
+        -:  392:                    // Si la distancia es menor a la distancia actual
+    #####:  393:                    if (distancias[ai->destino] > distancias[iter->first] + matriz[iter->first][ai->destino])
+    %%%%%:  393-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  393-block  1
+la llamada  3 nunca se ejecuta
+la llamada  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+la ramificacion  6 nunca se ejecuta
+    %%%%%:  393-block  2
+la llamada  7 nunca se ejecuta
+la llamada  8 nunca se ejecuta
+la ramificacion  9 nunca se ejecuta
+la ramificacion 10 nunca se ejecuta
+    %%%%%:  393-block  3
+la llamada 11 nunca se ejecuta
+la ramificacion 12 nunca se ejecuta
+la ramificacion 13 nunca se ejecuta
+    %%%%%:  393-block  4
+la ramificacion 14 nunca se ejecuta
+la ramificacion 15 nunca se ejecuta
+        -:  394:                    {
+        -:  395:                        // Actualiza la distancia
+    #####:  396:                        distancias[ai->destino] = distancias[iter->first] + matriz[iter->first][ai->destino];
+    %%%%%:  396-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+    %%%%%:  396-block  1
+la llamada  4 nunca se ejecuta
+la llamada  5 nunca se ejecuta
+la ramificacion  6 nunca se ejecuta
+la ramificacion  7 nunca se ejecuta
+    %%%%%:  396-block  2
+la llamada  8 nunca se ejecuta
+la ramificacion  9 nunca se ejecuta
+la ramificacion 10 nunca se ejecuta
+    %%%%%:  396-block  3
+la llamada 11 nunca se ejecuta
+la ramificacion 12 nunca se ejecuta
+la ramificacion 13 nunca se ejecuta
+    #####:  397:                        rutas[ai->destino] = iter->first;
+    %%%%%:  397-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+    #####:  398:                        cola[ai->destino] = distancias[ai->destino];
+    %%%%%:  398-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  398-block  1
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+    %%%%%:  398-block  2
+        -:  399:                    }
+        -:  400:                }
+    #####:  401:                ai = ai->sig;
+    %%%%%:  401-block  0
+        -:  402:            }
+        -:  403:
+    #####:  404:            cola.erase(iter->first);
+    %%%%%:  404-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+        -:  405:        }
+        -:  406:
+        -:  407:        // Muestra todos los viajes con sus respectivos precios
+    #####:  408:        for (map<Vertice*, int>::iterator i = distancias.begin(); i != distancias.end(); i++)
+    %%%%%:  408-block  0
+la llamada  0 nunca se ejecuta
+    %%%%%:  408-block  1
+la llamada  1 nunca se ejecuta
+    %%%%%:  408-block  2
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+    #####:  409:            cout << i->first->nombre << ": " << i->second << endl;
+    %%%%%:  409-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+    %%%%%:  409-block  1
+la llamada  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+la ramificacion  6 nunca se ejecuta
+    %%%%%:  409-block  2
+la llamada  7 nunca se ejecuta
+la llamada  8 nunca se ejecuta
+la ramificacion  9 nunca se ejecuta
+la ramificacion 10 nunca se ejecuta
+    %%%%%:  409-block  3
+la llamada 11 nunca se ejecuta
+la ramificacion 12 nunca se ejecuta
+la ramificacion 13 nunca se ejecuta
+        -:  410:
+        -:  411:        // Muestra el viaje con el menor costo y su precio
+    #####:  412:        for(map<Vertice*, Vertice*>::iterator i = rutas.begin(); i != rutas.end(); i++)
+    %%%%%:  412-block  0
+la llamada  0 nunca se ejecuta
+    %%%%%:  412-block  1
+la llamada  1 nunca se ejecuta
+    %%%%%:  412-block  2
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+        -:  413:        {
+    #####:  414:            if (i->first == vdestino)
+    %%%%%:  414-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+        -:  415:            {
+    #####:  416:                cout << "El viaje mas barato es: " << endl;
+    %%%%%:  416-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  416-block  1
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+    #####:  417:                cout << i->first->nombre << " <-- ";
+    %%%%%:  417-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+    %%%%%:  417-block  1
+la llamada  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+la ramificacion  6 nunca se ejecuta
+        -:  418:
+    #####:  419:                while (i->second != nullptr)
+    %%%%%:  419-block  0
+    %%%%%:  419-block  1
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+        -:  420:                {
+    #####:  421:                    cout << i->second->nombre << " <-- ";
+    %%%%%:  421-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+    %%%%%:  421-block  1
+la llamada  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+la ramificacion  6 nunca se ejecuta
+    #####:  422:                    i->second = rutas[i->second];
+    %%%%%:  422-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+la ramificacion  3 nunca se ejecuta
+    %%%%%:  422-block  1
+la llamada  4 nunca se ejecuta
+        -:  423:                }
+        -:  424:
+    #####:  425:                cout << endl << "Precio: " << distancias[vdestino] << endl;
+    %%%%%:  425-block  0
+la llamada  0 nunca se ejecuta
+la ramificacion  1 nunca se ejecuta
+la ramificacion  2 nunca se ejecuta
+    %%%%%:  425-block  1
+la llamada  3 nunca se ejecuta
+la ramificacion  4 nunca se ejecuta
+la ramificacion  5 nunca se ejecuta
+    %%%%%:  425-block  2
+la llamada  6 nunca se ejecuta
+la ramificacion  7 nunca se ejecuta
+la ramificacion  8 nunca se ejecuta
+    %%%%%:  425-block  3
+la llamada  9 nunca se ejecuta
+la ramificacion 10 nunca se ejecuta
+la ramificacion 11 nunca se ejecuta
+    %%%%%:  425-block  4
+la llamada 12 nunca se ejecuta
+la ramificacion 13 nunca se ejecuta
+la ramificacion 14 nunca se ejecuta
+    #####:  426:                break;
+    %%%%%:  426-block  0
+        -:  427:            }
+        -:  428:        }
+        -:  429:
+    #####:  430:    }
+    %%%%%:  430-block  0
+la llamada  0 nunca se ejecuta
+la llamada  1 nunca se ejecuta
+la llamada  2 nunca se ejecuta
+la llamada  3 nunca se ejecuta
+la llamada  4 nunca se ejecuta
+    $$$$$:  430-block  1
+la llamada  5 nunca se ejecuta
+    $$$$$:  430-block  2
+la llamada  6 nunca se ejecuta
+    $$$$$:  430-block  3
+la llamada  7 nunca se ejecuta
+    $$$$$:  430-block  4
+la llamada  8 nunca se ejecuta
+    $$$$$:  430-block  5
+la llamada  9 nunca se ejecuta
+    #####:  431:}
+    %%%%%:  431-block  0

@@ -153,7 +153,7 @@ void ViajeGrafo::eliminarConexion(const string& origen, const string& destino) {
     }
     if (vOrigen != nullptr && vDestino != nullptr){
 
-        // Si es la primera conexion (viaje) a eliminar
+        // Si es la primera conexion (viaje) a eliminarTerminal
         vOrigen->arista->destino = vDestino;
         if(vOrigen->arista->destino){
             Arista* aux = vOrigen->arista;
@@ -162,13 +162,13 @@ void ViajeGrafo::eliminarConexion(const string& origen, const string& destino) {
             delete aux;
         }
 
-        // Si no es la primera conexion (viaje) a eliminar
+        // Si no es la primera conexion (viaje) a eliminarTerminal
 
         else{
             Arista* actual = vOrigen->arista;
             Arista* sig = actual->sig;;
 
-            // Recorre hasta encontrar la conexion a eliminar (viaje)
+            // Recorre hasta encontrar la conexion a eliminarTerminal (viaje)
             while (sig != nullptr){
 
                 if(sig->destino == vDestino){
@@ -189,7 +189,7 @@ void ViajeGrafo::eliminarConexion(const string& origen, const string& destino) {
  */
 void ViajeGrafo::eliminarCiudad(const std::string& nombre) {
     /*
-     * Si es la primera ciudad a eliminar del grafo
+     * Si es la primera ciudad a eliminarTerminal del grafo
      * 1. Elimina todas las conexiones de la ciudad
      * 2. Elimina la ciudad
      */
@@ -204,7 +204,7 @@ void ViajeGrafo::eliminarCiudad(const std::string& nombre) {
          tamanio--;
     }
     /*
-     * Si se quiere eliminar una ciudad que no es la primera
+     * Si se quiere eliminarTerminal una ciudad que no es la primera
      * 1. Elimina todas las conexiones de la ciudad
      * 2. Ligar la ciudad anterior con el siguiente para no perder la referencia
      * 3. Elimina la ciudad
@@ -262,8 +262,8 @@ void ViajeGrafo::eliminarConexionesCiudad(Vertice *ciudad) {
 
     while(ciudad->arista != nullptr){
 
-        aux = ciudad->arista; // aux apunta al la conexion(viaje) a eliminar
-        ciudad->arista = ciudad->arista->sig;   // Apunta a la siguiente connexion de la ciudad a eliminar
+        aux = ciudad->arista; // aux apunta al la conexion(viaje) a eliminarTerminal
+        ciudad->arista = ciudad->arista->sig;   // Apunta a la siguiente connexion de la ciudad a eliminarTerminal
         cout << "Eliminan conexion  " << ciudad->nombre
              << "-->" << aux->destino->sig << " eliminado " << endl;
         delete aux;
@@ -279,7 +279,7 @@ void ViajeGrafo::eliminarConexionesDestino(const string& destino) {
             actual = actual->sig;
             continue;
         }
-        // Si es la primera conexion a eliminar de la lista del destino
+        // Si es la primera conexion a eliminarTerminal de la lista del destino
         if( actual->arista->destino->nombre == destino ){
 
             Arista* aux = actual->arista;

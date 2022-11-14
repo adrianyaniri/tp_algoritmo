@@ -1,23 +1,27 @@
-#include <iostream>
-#include "Grafo/ViajeGrafo.h"
+
 #include "Hash/Terminales.h"
 
 
 int main() {
-    Terminal Ret = {"RETIRO", "Terminal Retiro Argentina", 100.10, 5, 100, 100};
-    Terminal Eze = {"EZES", "Terminal Ezeiza Argentina", 100.10, 5, 100, 100};
+
+    list<Terminal> lista;
+
+    Terminal Ret = {"RE", "Terminal Retiro Argentina", 100.10, 5, 100, 100};
+    Terminal Eze = {"EZ", "Terminal Ezeiza Argentina", 100.10, 5, 100, 100};
     Terminal Mvd = {"MVD", "Terminal Montevideo Uruguay", 100.10, 5, 100, 100};
     Terminal Scl = {"SCL", "Terminal Santiago Chile", 100.10, 5, 100, 100};
+    Terminal Ret2 = {"ER", "Terminal Retiro Argentina", 100.10, 5, 100, 100};
+    Terminal Fco = {"FCO", "Terminal Fco Argentina", 100.10, 5, 100, 100};
 
 
+    TablaHashTerminales terminales(10000);
 
- TablaHashTerminales terminales(50);
     terminales.insertarTerminal(Ret);
     terminales.insertarTerminal(Eze);
     terminales.insertarTerminal(Mvd);
     terminales.insertarTerminal(Scl);
 
-    terminales.buscar("SCL");
+    terminales.imprimirTerminales();
 
 
     return 0;

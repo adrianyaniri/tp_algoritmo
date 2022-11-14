@@ -46,7 +46,7 @@ public:
     /*
      * Pre: El grafo debe estar cargado
      * Post: Elimina todas las conexiones de la ciudad
-     * @arg ciudad: ciudad a eliminar
+     * @arg ciudad: ciudad a eliminarTerminal
      */
 
     static void eliminarConexionesCiudad(Vertice *ciudad);
