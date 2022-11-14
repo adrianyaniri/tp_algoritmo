@@ -1,0 +1,17 @@
+        -:    0:Source:/home/home/CLionProjects/estructurasDatos/Grafo/Arista.cpp
+        -:    0:Graph:/home/home/CLionProjects/estructurasDatos/cmake-build-debug-coverage/CMakeFiles/estructurasDatos.dir/Grafo/Arista.cpp.gcno
+        -:    0:Data:/home/home/CLionProjects/estructurasDatos/cmake-build-debug-coverage/CMakeFiles/estructurasDatos.dir/Grafo/Arista.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by home on 9/11/22.
+        -:    3://
+        -:    4:
+        -:    5:#include "Arista.h"
+        -:    6:
+function _ZN6AristaC2EP7Verticeii called 0 returned 0% blocks executed 0%
+    #####:    7:Arista::Arista(Vertice* _destino,int _precio, int _distancia) {
+    #####:    8:    precio = _precio;
+    #####:    9:    destino = _destino;
+    #####:   10:    distancia = _distancia;
+    #####:   11:    sig = nullptr;
+    #####:   12:}

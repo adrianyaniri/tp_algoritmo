@@ -4,9 +4,9 @@
 
 #include "Arista.h"
 
-Arista::Arista(int _precio, int _distancia) {
+Arista::Arista(Vertice* _destino,int _precio, int _distancia) {
     precio = _precio;
+    destino = _destino;
     distancia = _distancia;
     sig = nullptr;
-    destino = nullptr;
 }

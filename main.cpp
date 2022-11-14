@@ -1,26 +1,37 @@
-#include <iostream>
-#include "ListaEnlazada/Nodo.h"
-#include "ListaEnlazada/Lista.h"
+
+#include "Hash/Terminales.h"
+
 
 int main() {
-    Dato viaje1 = {1, "Buenos Aires", "Cordoba", 3, 1000};
-    Dato viaje2 = {2, "Buenos Aires", "Rosario", 2, 500};
-    Dato viaje3 = {3, "Buenos Aires", "Mendoza", 4, 2000};
-    Dato viaje4 = {4, "Buenos Aires", "Mar del Plata", 5, 3000};
 
-    Lista *viajes = new Lista();
+    list<Terminal> lista;
 
-    viajes->insertar(viaje4);
-    viajes->insertar(viaje1);
-    viajes->insertar(viaje2);
-    viajes->insertar(viaje3);
+    Terminal Ret = {"RE", "Terminal Retiro Argentina", 100.10, 5, 100, 100};
+    Terminal Eze = {"EZ", "Terminal Ezeiza Argentina", 100.10, 5, 100, 100};
+    Terminal Mvd = {"MVD", "Terminal Montevideo Uruguay", 100.10, 5, 100, 100};
+    Terminal Scl = {"SCL", "Terminal Santiago Chile", 100.10, 5, 100, 100};
+    Terminal Fco = {"FCO", "Terminal Fco Argentina", 100.10, 5, 100, 100};
+    Terminal Bue = {"BUE", "Terminal Bue Argentina", 100.10, 5, 100, 100};
+    Terminal Re = {"ER", "Terminal Mza Argentina", 100.10, 5, 100, 100};
 
-    viajes->imprimirListaCompleta();
+    TablaHashTerminales terminales(10000);
 
-    std::cout << "Tamanio de la lista: " << viajes->tamanio << std::endl;
+    terminales.insertarTerminal(Ret);
+    terminales.insertarTerminal(Eze);
+    terminales.insertarTerminal(Mvd);
+    terminales.insertarTerminal(Scl);
+    terminales.insertarTerminal(Fco);
+    terminales.insertarTerminal(Bue);
+    terminales.insertarTerminal(Re);
+    terminales.insertarTerminal(Re);
 
-   viajes->estaVacia();
+
+    terminales.buscar("BUE");
 
 
-   return 0;
+
+
+
+
+    return 0;
 }

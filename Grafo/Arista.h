@@ -8,15 +8,16 @@
 class Vertice;
 
 class Arista {
-    int precio;
-    int distancia;
-    Arista *sig;
-    Vertice *destino;
 
     friend class Grafo; // Para que Grafo pueda acceder a los atributos privados de Arista
     public:
         // Constructor
-        Arista(int precio, int distancia);
+        Arista(Vertice* destino,int precio, int distancia);
+
+       Arista *sig;
+       Vertice *destino;
+       int distancia;
+       int precio;
 };
 
 

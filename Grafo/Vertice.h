@@ -7,13 +7,13 @@
 
 
 #include <string>
+#include "Arista.h"
 
 
 // Clase
-class Arista;
+
 
 class Vertice {
-    Arista* ady;
 
     friend class Grafo; // Para que Grafo pueda acceder a los atributos privados de Vertice
 
@@ -23,6 +23,7 @@ public:
 
     Vertice* sig;
     std::string nombre;
+    Arista* arista;
 };
 
 

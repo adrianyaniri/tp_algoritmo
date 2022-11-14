@@ -6,5 +6,5 @@
 Vertice::Vertice(std::string _nombre) {
     nombre = _nombre;
     sig = nullptr;
-    ady = nullptr;
+    arista = nullptr;
 }

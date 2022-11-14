@@ -8,7 +8,7 @@
 /*
  * Post: inserta un nuevo nodo al principio de la lista
  * @param dato: dato a insertar
- * @param nodo: nodo a insertar
+ * @param nodo: nodo a insertarTerminal
  */
 void Lista::insertar(Dato dato, Nodo *nodo) {
     if (nodo->siguiente == nullptr){
@@ -21,7 +21,7 @@ void Lista::insertar(Dato dato, Nodo *nodo) {
 
 /*
  * Post: Imprime los datos del nodo actual
- * @param nodo: nodo a imprimir
+ * @param nodo: nodo a imprimirTerminales
  */
 void Lista::imprimir(Nodo *nodo) {
     if( nodo != nullptr)

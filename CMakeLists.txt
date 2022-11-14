@@ -3,4 +3,19 @@ project(estructurasDatos)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(estructurasDatos main.cpp ListaEnlazada/Nodo.cpp ListaEnlazada/Nodo.h ListaEnlazada/Lista.cpp ListaEnlazada/Lista.h Grafo/ViajeGrafo.h Grafo/ViajeGrafo.cpp Grafo/Vertice.cpp Grafo/Vertice.h Grafo/Arista.cpp Grafo/Arista.h)
+add_executable(
+        estructurasDatos main.cpp
+        ListaEnlazada/Nodo.cpp
+        ListaEnlazada/Nodo.h
+        ListaEnlazada/Lista.cpp
+        ListaEnlazada/Lista.h
+        Grafo/ViajeGrafo.h
+        Grafo/ViajeGrafo.cpp
+        Grafo/Vertice.cpp
+        Grafo/Vertice.h
+        Grafo/Arista.cpp
+        Grafo/Arista.h
+        Hash/Terminales.cpp
+        Hash/Terminales.h
+        Menu/Menu.cpp
+        Menu/Menu.h)
