@@ -28,8 +28,8 @@ public:
     // constructor
     bool estaVacia();
     void insertarTerminal(Terminal& terminal); // insertarTerminal un elemento en la tabla
-    void eliminarTerminal(string codigo); // eliminarTerminal un elemento de la tabla
-    void buscarTerminal(string codigo); // buscarTerminal un elemento en la tabla
+    void eliminar(string codigo); // eliminar un elemento de la tabla
+    void buscar(string codigo); // buscar un elemento en la tabla
     void imprimirTerminales(); // imprimirTerminales la tabla
     explicit TablaHashTerminales(int tamano);
     // funcion dipersion de los elementos

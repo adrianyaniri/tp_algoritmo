@@ -10,9 +10,9 @@ int main() {
     Terminal Eze = {"EZ", "Terminal Ezeiza Argentina", 100.10, 5, 100, 100};
     Terminal Mvd = {"MVD", "Terminal Montevideo Uruguay", 100.10, 5, 100, 100};
     Terminal Scl = {"SCL", "Terminal Santiago Chile", 100.10, 5, 100, 100};
-    Terminal Ret2 = {"ER", "Terminal Retiro Argentina", 100.10, 5, 100, 100};
     Terminal Fco = {"FCO", "Terminal Fco Argentina", 100.10, 5, 100, 100};
-
+    Terminal Bue = {"BUE", "Terminal Bue Argentina", 100.10, 5, 100, 100};
+    Terminal Re = {"ER", "Terminal Mza Argentina", 100.10, 5, 100, 100};
 
     TablaHashTerminales terminales(10000);
 
@@ -20,8 +20,17 @@ int main() {
     terminales.insertarTerminal(Eze);
     terminales.insertarTerminal(Mvd);
     terminales.insertarTerminal(Scl);
+    terminales.insertarTerminal(Fco);
+    terminales.insertarTerminal(Bue);
+    terminales.insertarTerminal(Re);
+    terminales.insertarTerminal(Re);
 
-    terminales.imprimirTerminales();
+
+    terminales.buscar("BUE");
+
+
+
+
 
 
     return 0;

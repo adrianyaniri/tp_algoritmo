@@ -41,14 +41,21 @@ int sumarAscii(string cadena){
     for(int i = 0; i < cadena.length(); i++){
         suma += cadena[i];
     }
-    return suma;
+    return suma * suma ;
 }
 
-
+// Funcion hash de colisiones Quadraticas probing
+int funcionQuadraticas(string codigo, int i, int tamano){
+    return (sumarAscii(codigo) + i + i*i) % tamano;
+}
 
 TablaHashTerminales::TablaHashTerminales(int tamano) {
-    tamano = tamano;
-    terminalesTabla = new list<pair<int, Terminal> >[tamano];
+   if(esPrimo(tamano))
+       this->tamano = tamano;
+   else
+       this->tamano = siguientePrimo(tamano);
+
+   terminalesTabla = new list<pair<int, Terminal> >[tamano];
 }
 
 bool TablaHashTerminales::estaVacia() {
@@ -75,43 +82,47 @@ bool TablaHashTerminales::estaVacia() {
 
 void TablaHashTerminales::insertarTerminal(Terminal &terminal) {
     string codigoTerminal = terminal.codigo;
+    int posicion = sumarAscii(codigoTerminal);
 
-    int clave = funcionHashDividir(codigoTerminal);  // se calcula la clave
-    terminalesTabla[clave].emplace_back(clave, terminal); // se inserta el par en la lista
-    auto it = terminalesTabla[clave].begin();   // se crea un iterador para recorrer la lista
-
-    for (; it != terminalesTabla[clave].end(); it++) {
-        if (it->first == clave) {
-            it->second = terminal;// se actualiza el valor del elemento
-            break;
-        }
+    //Si la posicion es mayor al tamaño de la tabla se le asigna el resto de la division
+    if(posicion > tamano){
+        posicion = posicion % tamano;
     }
+
+    // si la posicion ya está ocupada le aplica la funcion de colision
+    if(!terminalesTabla[posicion].empty()){
+        int i = 1;
+        while(!terminalesTabla[funcionQuadraticas(codigoTerminal, i, tamano)].empty()){
+            i++;
+        }
+        posicion = funcionQuadraticas(codigoTerminal, i, tamano);
+    }
+
+
+    terminalesTabla[posicion].emplace_back(posicion, terminal);
 }
 
-void TablaHashTerminales::buscarTerminal(string codigo) {
-    Terminal terminal;
-    terminal.codigo = codigo;
-    int clave = sumarAscii(codigo);  // se calcula la clave
-    auto it = terminalesTabla[clave].begin();   // se crea un iterador para recorrer la lista
 
-    bool encontrado;
-    for (; it != terminalesTabla[clave].end(); it++) {
-        if (it->first == clave) {
-            encontrado = true;
-            cout << "Terminal encontrada " << endl;
-            cout << "Codigo: " << it->second.codigo << endl;
-            cout << "Nombre: " << it->second.nombre << endl;
-            cout << "Superficie: " << it->second.superficie << endl;
-            cout << "Cantidad de terminales: " << it->second.cantidad_terminales << endl;
-            cout << "Destinos nacionales: " << it->second.destinos_nacionales << endl;
-            cout << "Destinos internacionales: " << it->second.destinos_internacionales << endl;
-            break;
-        }
-    }
+//Funcion para buscar en la tabla hash un elmento
+void TablaHashTerminales::buscar(string codigo) {
+ Terminal terminal;
+ codigo = terminal.codigo;
+ int posicion = sumarAscii(codigo);
 
-    if (!encontrado) {
-        cout << "La terminal no fue encontrada" << endl;
-    }
+ // Buscar en la posicion de la tabla
+  for( auto it = terminalesTabla[posicion].begin(); it != terminalesTabla[posicion].end(); it++){
+      if(it->second.codigo == codigo){
+          cout << "Codigo: " << it->second.codigo << endl;
+          cout << "Nombre: " << it->second.nombre << endl;
+          cout << "Superficie: " << it->second.superficie << endl;
+          cout << "Cantidad de terminales: " << it->second.cantidad_terminales << endl;
+          cout << "Destinos nacionales: " << it->second.destinos_nacionales << endl;
+          cout << "Destinos internacionales: " << it->second.destinos_internacionales << endl;
+      }
+      cout << "No se encontro el elemento" << endl;
+  }
+
+
 }
  void TablaHashTerminales::imprimirTerminales() {
     for (int i = 0; i < tamano; i++) {
@@ -130,27 +141,8 @@ void TablaHashTerminales::buscarTerminal(string codigo) {
         }
     }
 }
- void TablaHashTerminales::eliminarTerminal(string codigo) {
-    int clave = sumarAscii(codigo);  // se calcula la clave
-    auto it = terminalesTabla[clave].begin();   // se crea un iterador para recorrer la lista
+ void TablaHashTerminales::eliminar(string codigo) {
 
-    bool encontrado;
-    for (; it != terminalesTabla[clave].end(); it++) {
-        if (it->first == clave) {
-            encontrado = true;
-            terminalesTabla[clave].erase(it);
-            cout << "Elemento eliminado" << endl;
-            break;
-        }
-    }
-
-    if (!encontrado) {
-        cout << "La terminal no fue encontrada" << endl;
-    }
 }
 
- int TablaHashTerminales::funcionHashDividir(string codigo) {
-    int clave = sumarAscii(codigo);
-    return clave + 1 ;
-}
 

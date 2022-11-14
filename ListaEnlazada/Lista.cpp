@@ -35,7 +35,7 @@ void Lista::imprimir(Nodo *nodo) {
 /*
  * Post: elimina el nodo de la lista
  * @param nodo: nodo a eliminar
- * @param dato: dato a eliminarTerminal
+ * @param dato: dato a eliminar
  */
 void Lista::eliminar(Nodo *nodo, Dato dato) {
     if(nodo == nullptr)
