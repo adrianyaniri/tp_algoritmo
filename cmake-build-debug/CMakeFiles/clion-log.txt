@@ -2,4 +2,3 @@
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/home/CLionProjects/estructurasDatos/cmake-build-debug
-CMake File API: /home/home/CLionProjects/estructurasDatos/cmake-build-debug: failed to load from '/home/home/CLionProjects/estructurasDatos/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-7344c9bf698165f99c01.json'
