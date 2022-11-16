@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/home/CLionProjects/estructurasDatos/cmake-build-debug",
-		"source" : "/home/home/CLionProjects/estructurasDatos"
+		"build" : "/home/home/CLionProjects/final/cmake-build-debug",
+		"source" : "/home/home/CLionProjects/final"
 	},
 	"version" : 
 	{

@@ -1,18 +1,13 @@
 #include <fstream>
 #include "Hash/Terminales.h"
 #include "Datos/Carga.h"
+#include "Menu/Menu.h"
 
 using namespace std;
 
 
 int main() {
 
-    TablaHashTerminales terminales(5000 );
-    ViajeGrafo viajes;
-
-    leerYCargarViajes(VIAJES, viajes);
-    viajes.mostrarListaDestinos();
-
-    viajes.Dijkstra("COR","RET");
+    menu();
     return 0;
 }

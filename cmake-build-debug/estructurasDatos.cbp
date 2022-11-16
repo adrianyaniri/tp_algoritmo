@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="estructurasDatos"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/home/CLionProjects/final/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="estructurasDatos">
+				<Option output="/home/home/CLionProjects/final/cmake-build-debug/estructurasDatos" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/home/CLionProjects/final/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/12"/>
+					<Add directory="/usr/include/c++/12/x86_64-suse-linux"/>
+					<Add directory="/usr/include/c++/12/backward"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/12/include-fixed"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/12/../../../../x86_64-suse-linux/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 estructurasDatos"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="estructurasDatos/fast">
+				<Option output="/home/home/CLionProjects/final/cmake-build-debug/estructurasDatos" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/home/CLionProjects/final/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/12"/>
+					<Add directory="/usr/include/c++/12/x86_64-suse-linux"/>
+					<Add directory="/usr/include/c++/12/backward"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/12/include-fixed"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/12/../../../../x86_64-suse-linux/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 estructurasDatos/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/home/CLionProjects/final/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/home/CLionProjects/final/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/home/CLionProjects/final/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/home/CLionProjects/final/src/Datos/Carga.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Datos/Carga.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/FuncionesAux/funcionesAux.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/FuncionesAux/funcionesAux.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Grafo/Arista.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Grafo/Arista.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Grafo/NodoGrafo.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Grafo/NodoGrafo.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Grafo/ViajeGrafo.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Grafo/ViajeGrafo.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Hash/Terminales.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Hash/Terminales.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/ListaEnlazada/Lista.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/ListaEnlazada/Lista.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/ListaEnlazada/Nodo.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/ListaEnlazada/Nodo.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Menu/Menu.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/Menu/Menu.h">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/src/main.cpp">
+			<Option target="estructurasDatos"/>
+		</Unit>
+		<Unit filename="/home/home/CLionProjects/final/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
