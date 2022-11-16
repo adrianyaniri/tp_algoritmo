@@ -8,7 +8,8 @@
 
 #include <string>
 
-void leerTxt(std::string datos);
+// Funcion para insertar un viaje desde un archivo de texto
+
 
 
 #endif //ESTRUCTURASDATOS_MENU_H

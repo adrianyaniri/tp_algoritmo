@@ -21,7 +21,6 @@ TablaHashTerminales::TablaHashTerminales(int keys) {
         tamano = key;
     else
         tamano = siguientePrimo(key);
-    cout << "El tamano de la tabla es: " << tamano << endl;
 
     terminalesTabla = new list<pair<int, Terminal> >[tamano];
 }
@@ -47,9 +46,9 @@ void TablaHashTerminales::insertarTerminal(Terminal terminal) {
     int key = funcionHash(codigo);      // posicion en la tabla hash donde se insertara - se usa la funcion hash
 
 
-    if(!terminalesTabla[key].empty()) {  //
+    if(!terminalesTabla[key].empty()) {  // Si la posicion no esta vacia, se busca la siguiente posicion libre
         while (!terminalesTabla[key].empty())
-            key = funcionQuadraticas(codigo, key, tamano);
+            key = funcionQuadraticas(codigo, key, tamano);  // Se usa la funcion quadraticas para colisiones
         terminalesTabla[key].emplace_back(key, terminal);
     }
 }
@@ -64,9 +63,11 @@ void TablaHashTerminales::imprimeTabla() {
             for(auto it = terminalesTabla[i].begin(); it != terminalesTabla[i].end(); it++){
                 cout << "Codigo: " << it->second.codigo << endl;
                 cout << "Nombre: " << it->second.nombre << endl;
+                cout << "Ciudad: " << it->second.ciudad << endl;
+                cout << "Pais: " << it->second.pais << endl;
                 cout << "Superficie: " << it->second.superficie << endl;
-                cout << "Cantidad de terminales: " << it->second.cantidad_terminales << endl;
-                cout << "Destinos nacionales: " << it->second.destinos_nacionales << endl;
+                cout << "Cantidad Terminales " << it->second.cantidad_terminales << endl;
+                cout << "Destinos Nacionales: " << it->second.destinos_nacionales << endl;
                 cout << "Destinos internacionales: " << it->second.destinos_internacionales << endl;
                 cout << endl;
             }
@@ -83,9 +84,11 @@ void TablaHashTerminales::buscarTerminal(string codigo) {
         for(auto it = terminalesTabla[key].begin(); it != terminalesTabla[key].end(); it++){
             if(it->second.codigo == codigo){
                 terminal = it->second;
+                cout << "Posicion en la tabla: " << key << endl;
                 cout << "Codigo: " << terminal.codigo << endl;
-                cout << "Posicion: " << key << endl;
                 cout << "Nombre: " << terminal.nombre << endl;
+                cout << "Ciudad: " << terminal.ciudad << endl;
+                cout << "Pais: " << terminal.pais << endl;
                 cout << "Superficie: " << terminal.superficie << endl;
                 cout << "Cantidad de terminales: " << terminal.cantidad_terminales << endl;
                 cout << "Destinos nacionales: " << terminal.destinos_nacionales << endl;

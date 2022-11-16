@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "estructurasDatos::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-estructurasDatos-Debug-b1d0b8cdd610922761d4.json",
+					"jsonFile" : "target-estructurasDatos-Debug-af275bc699604a81131f.json",
 					"name" : "estructurasDatos",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/home/CLionProjects/estructurasDatos/cmake-build-debug-coverage",
+		"build" : "/home/home/CLionProjects/estructurasDatos/cmake-build-debug",
 		"source" : "/home/home/CLionProjects/estructurasDatos"
 	},
 	"version" : 

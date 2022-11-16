@@ -14,6 +14,8 @@ using namespace std;
 struct Terminal {
     string codigo;
     string nombre;
+    string ciudad;
+    string pais;
     double superficie;
     int cantidad_terminales;
     int destinos_nacionales;
