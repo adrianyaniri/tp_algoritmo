@@ -11,11 +11,11 @@ add_executable(
         src/ListaEnlazada/Lista.h
         src/Grafo/ViajeGrafo.h
         src/Grafo/ViajeGrafo.cpp
-        src/Grafo/Vertice.cpp
-        src/Grafo/Vertice.h
+        src/Grafo/NodoGrafo.cpp
+        src/Grafo/NodoGrafo.h
         src/Grafo/Arista.cpp
         src/Grafo/Arista.h
         src/Hash/Terminales.cpp
         src/Hash/Terminales.h
         src/Menu/Menu.cpp
-        src/Menu/Menu.h src/FuncionesAux/funcionesAux.cpp src/FuncionesAux/funcionesAux.h src/Datos/LeerTxt.cpp src/Datos/LeerTxt.h)
+        src/Menu/Menu.h src/FuncionesAux/funcionesAux.cpp src/FuncionesAux/funcionesAux.h src/Datos/Carga.cpp src/Datos/Carga.h)

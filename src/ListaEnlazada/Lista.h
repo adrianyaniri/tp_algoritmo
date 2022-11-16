@@ -11,17 +11,17 @@
 class Lista {
 
 private:
-    void insertar(Dato dato, Nodo *nodo);
+    void insertar(Viaje dato, Nodo *nodo);
     void imprimir(Nodo *nodo);
-    void eliminar(Nodo *nodo, Dato dato);
+    void eliminar(Nodo *nodo, Viaje dato);
 
 public:
     int tamanio = 0;
     //Constructor
     Nodo *primero{};
 
-    void insertar(Dato dato);
-    void eliminar(Dato viaje);
+    void insertar(Viaje dato);
+    void eliminar(Viaje viaje);
     void imprimir();
     bool estaVacia();
     void imprimirListaCompleta();

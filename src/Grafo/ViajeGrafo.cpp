@@ -28,8 +28,8 @@ int ViajeGrafo::obtenerTamanio() const {
    return tamanio;
 }
 
-Vertice *ViajeGrafo::obtenerCiudad(const string& nombre) {
-    Vertice *aux = primero;  // aux apunta al primer vértice
+NodoGrafo *ViajeGrafo::obtenerCiudad(const string& nombre) {
+    NodoGrafo *aux = primero;  // aux apunta al primer vértice
 
     while (aux != nullptr) {
         if (aux->nombre == nombre) {
@@ -47,7 +47,7 @@ Vertice *ViajeGrafo::obtenerCiudad(const string& nombre) {
 void ViajeGrafo::insertarCuidad(const string& nombre) {
     // Busca si la ciudad ya existe
     if(obtenerCiudad(nombre) == nullptr){
-        Vertice *nuevo = new Vertice(nombre);
+        NodoGrafo *nuevo = new NodoGrafo(nombre);
 
         // Si el grafo está vacío inserto el primer vértice
         if(estaVacio())
@@ -55,16 +55,14 @@ void ViajeGrafo::insertarCuidad(const string& nombre) {
 
         // Si el grafo no está vacío inserto el vértice al final
         else{
-            Vertice *aux = primero;
+            NodoGrafo *aux = primero;
             while(aux->sig != nullptr)
                 aux = aux->sig;
             aux->sig = nuevo;
         }
         tamanio++;
     }
-    else{
-        cout << "La ciudad ya esta cargada " << endl;
-    }
+
 }
 
 /*
@@ -76,8 +74,8 @@ void ViajeGrafo::insertarCuidad(const string& nombre) {
  */
 void ViajeGrafo::insertarViaje(const string& origen, const string& destino, int precio, int distancia) {
 
-    Vertice* vOrigen = obtenerCiudad(origen);
-    Vertice* vDestino = obtenerCiudad(destino);
+    NodoGrafo* vOrigen = obtenerCiudad(origen);
+    NodoGrafo* vDestino = obtenerCiudad(destino);
 
     if(vOrigen == nullptr){
         cout << "Es lugar de origen no existe " << endl;   // Si el origen no existe
@@ -117,7 +115,7 @@ void ViajeGrafo::insertarViaje(const string& origen, const string& destino, int 
  * También imprime el destino, precio y distancia de cada connexion
  */
 void ViajeGrafo::mostrarListaDestinos() {
-    Vertice* actual= primero;
+    NodoGrafo* actual= primero;
 
 
     // Recorre los vertices
@@ -142,8 +140,8 @@ void ViajeGrafo::mostrarListaDestinos() {
  */
 void ViajeGrafo::eliminarConexion(const string& origen, const string& destino) {
 
-    Vertice* vOrigen = obtenerCiudad(origen);
-    Vertice* vDestino = obtenerCiudad(destino);
+    NodoGrafo* vOrigen = obtenerCiudad(origen);
+    NodoGrafo* vDestino = obtenerCiudad(destino);
 
     if (vOrigen == nullptr ){
         cout << "el origen no existe " << endl; // Si el origen no existe
@@ -195,7 +193,7 @@ void ViajeGrafo::eliminarCiudad(const std::string& nombre) {
      */
     if(primero->nombre == nombre){
 
-         Vertice* aux = primero;
+         NodoGrafo* aux = primero;
          primero = primero->sig;
          eliminarConexionesCiudad(aux);
          eliminarConexionesDestino(aux->nombre);
@@ -211,8 +209,8 @@ void ViajeGrafo::eliminarCiudad(const std::string& nombre) {
      */
     else{
         // Recorre el grafo hasta encontrar el nodo
-        Vertice* actual = primero;
-        Vertice* aux = actual->sig;
+        NodoGrafo* actual = primero;
+        NodoGrafo* aux = actual->sig;
         bool existe = false;    // Verifica si la ciudad existe en el grafo -- default: false
 
         while(aux != nullptr){
@@ -233,13 +231,13 @@ void ViajeGrafo::eliminarCiudad(const std::string& nombre) {
             aux = aux->sig;
         }
         if(!existe)
-            cout << "El Nodo no existe" << endl;
+            cout << "No ciudad no esta cargada.." << endl;
     }
 }
 
 //Post: Elimina toda la cuidades (vertices) del grafo
 void ViajeGrafo::eliminarGrafo() {
-    Vertice* actual = primero;
+    NodoGrafo* actual = primero;
 
     while(primero != nullptr){
         actual = primero;
@@ -253,7 +251,7 @@ void ViajeGrafo::eliminarGrafo() {
 }
 
 // Elimina todas las conexiones de una ciudad(vertice)
-void ViajeGrafo::eliminarConexionesCiudad(Vertice *ciudad) {
+void ViajeGrafo::eliminarConexionesCiudad(NodoGrafo *ciudad) {
 
     if(ciudad == nullptr)
         return;
@@ -272,7 +270,7 @@ void ViajeGrafo::eliminarConexionesCiudad(Vertice *ciudad) {
 // Post: Elimina todas las conexiones que apuntan a una ciudad (vertice)
 void ViajeGrafo::eliminarConexionesDestino(const string& destino) {
 
-    Vertice* actual = primero;
+    NodoGrafo* actual = primero;
 
     while (actual != nullptr){
         if(actual->nombre == destino || actual->arista == nullptr){
@@ -308,36 +306,33 @@ void ViajeGrafo::eliminarConexionesDestino(const string& destino) {
     }
 }
 
-bool CostoMinimo(const pair<Vertice*, int>& a, const pair<Vertice*, int>& b) {
+bool CostoMinimo(const pair<NodoGrafo*, int>& a, const pair<NodoGrafo*, int>& b) {
     return a.second < b.second;
 }
 
 void ViajeGrafo::Dijkstra(const string& origen, const string& destino)
 {
-    Vertice* vorigen = obtenerCiudad(origen);
-    Vertice* vdestino = obtenerCiudad(destino);
+    NodoGrafo* vorigen = obtenerCiudad(origen);
+    NodoGrafo* vdestino = obtenerCiudad(destino);
 
     // Verifica si existe el origen y el destino
     if (vorigen == nullptr )
         cout << "La cuidad origen no existe" << endl;
-
-
-
     else
     {
         /*
-         * 1. Crea una matriz de pares (Vertice, int) para almacenar los vertices
-         * 2. Genera una matriz de pares (Vertice, bool) para almacenar los vertices visitados
-         * 3. Genera una matriz de pares (Vertice, Vertice) para almacenar las rutas
-         * 4. Crea una matriz de pares (Vertice, int) para almacenar las distancias
+         * 1. Crea una matriz de pares (NodoGrafo, int) para almacenar los vertices
+         * 2. Genera una matriz de pares (NodoGrafo, bool) para almacenar los vertices visitados
+         * 3. Genera una matriz de pares (NodoGrafo, NodoGrafo) para almacenar las rutas
+         * 4. Crea una matriz de pares (NodoGrafo, int) para almacenar las distancias
          */
-        map<Vertice*, map<Vertice*, int>> matriz;
-        map<Vertice*, bool> visitados;
-        map<Vertice*, Vertice*> rutas;
-        map<Vertice*, int> cola;
-        map<Vertice*, int> distancias;
+        map<NodoGrafo*, map<NodoGrafo*, int>> matriz;
+        map<NodoGrafo*, bool> visitados;
+        map<NodoGrafo*, NodoGrafo*> rutas;
+        map<NodoGrafo*, int> cola;
+        map<NodoGrafo*, int> distancias;
 
-        Vertice* vi = primero;
+        NodoGrafo* vi = primero;
 
         /*
          * 1. Inicializa la matriz de visitados en falso
@@ -352,7 +347,7 @@ void ViajeGrafo::Dijkstra(const string& origen, const string& destino)
             rutas[vi] = nullptr;
             distancias[vi] = MAX;
 
-            Vertice* vj = primero;
+            NodoGrafo* vj = primero;
 
             while (vj != nullptr)
             {
@@ -378,7 +373,7 @@ void ViajeGrafo::Dijkstra(const string& origen, const string& destino)
         while (!cola.empty())
         {
             // Encuentra el vertice con el costo menor en la cola
-            map<Vertice*, int>::iterator iter = min_element(cola.begin(), cola.end(), CostoMinimo);
+            map<NodoGrafo*, int>::iterator iter = min_element(cola.begin(), cola.end(), CostoMinimo);
             visitados[iter->first] = true;
 
             // Recorre todos los vertices(ciudades) que tiene como destino
@@ -405,11 +400,11 @@ void ViajeGrafo::Dijkstra(const string& origen, const string& destino)
         }
 
         // Muestra todos los viajes con sus respectivos precios
-        for (map<Vertice*, int>::iterator i = distancias.begin(); i != distancias.end(); i++)
+        for (map<NodoGrafo*, int>::iterator i = distancias.begin(); i != distancias.end(); i++)
             cout << i->first->nombre << ": " << i->second << endl;
 
         // Muestra el viaje con el menor costo y su precio
-        for(map<Vertice*, Vertice*>::iterator i = rutas.begin(); i != rutas.end(); i++)
+        for(map<NodoGrafo*, NodoGrafo*>::iterator i = rutas.begin(); i != rutas.end(); i++)
         {
             if (i->first == vdestino)
             {

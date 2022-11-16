@@ -6,20 +6,14 @@
 #define ESTRUCTURASDATOS_NODO_H
 
 #include <iostream>
+#include "../Grafo/NodoGrafo.h"
 
-typedef struct Dato{
-    int id;
-    char *origen;
-    char *destino;
-    int duracion;
-    int precio;
-} Viaje;
 
 class Nodo {
 public:
-    Nodo(Dato dato);
+    Nodo(Viaje dato);
 
-    Dato dato;
+    Viaje dato;
     Nodo *siguiente;
 };
 

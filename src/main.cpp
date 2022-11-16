@@ -1,21 +1,18 @@
 #include <fstream>
 #include "Hash/Terminales.h"
-#include "Datos/LeerTxt.h"
+#include "Datos/Carga.h"
+
 using namespace std;
 
 
 int main() {
 
-    list<Terminal> lista;
     TablaHashTerminales terminales(5000 );
+    ViajeGrafo viajes;
 
+    leerYCargarViajes(VIAJES, viajes);
+    viajes.mostrarListaDestinos();
 
-    leer(TERMINALES, terminales);
-    terminales.imprimeTabla();
-
-
-
-
-
+    viajes.Dijkstra("COR","RET");
     return 0;
 }

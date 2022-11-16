@@ -4,7 +4,7 @@
 
 #include "Menu.h"
 #include "../Grafo/ViajeGrafo.h"
-#include "../Datos/LeerTxt.h"
+#include "../Datos/Carga.h"
 #include "../ListaEnlazada/Nodo.h"
 
 #include <string>
