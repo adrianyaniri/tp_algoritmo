@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "estructurasDatos::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-estructurasDatos-Debug-73f72c35d109e22acca6.json",
+					"jsonFile" : "target-estructurasDatos-Debug-d54da210ed76ebf21c14.json",
 					"name" : "estructurasDatos",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/home/CLionProjects/final/cmake-build-debug",
-		"source" : "/home/home/CLionProjects/final"
+		"build" : "/home/adrian/UnaHur/Algoritmo/tpFinal/cmake-build-debug",
+		"source" : "/home/adrian/UnaHur/Algoritmo/tpFinal"
 	},
 	"version" : 
 	{

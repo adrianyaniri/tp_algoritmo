@@ -36,9 +36,6 @@
 			[
 				{
 					"fragment" : "-g"
-				},
-				{
-					"fragment" : "-std=gnu++14"
 				}
 			],
 			"language" : "CXX",
@@ -118,7 +115,8 @@
 				12,
 				14,
 				16,
-				18
+				18,
+				19
 			]
 		}
 	],
@@ -227,6 +225,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "src/Datos/Carga.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/Constantes/Constates.h",
 			"sourceGroupIndex" : 1
 		}
 	],

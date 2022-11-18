@@ -22,7 +22,6 @@ bool ViajeGrafo::estaVacio() {
     return primero == nullptr;
 }
 
-
 //Post: retorna el total de todos los nodos del grafo
 int ViajeGrafo::obtenerTamanio() const {
    return tamanio;

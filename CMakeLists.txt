@@ -18,4 +18,4 @@ add_executable(
         src/Hash/Terminales.cpp
         src/Hash/Terminales.h
         src/Menu/Menu.cpp
-        src/Menu/Menu.h src/FuncionesAux/funcionesAux.cpp src/FuncionesAux/funcionesAux.h src/Datos/Carga.cpp src/Datos/Carga.h src/Menu/Menu.cpp src/Menu/Menu.h)
+        src/Menu/Menu.h src/FuncionesAux/funcionesAux.cpp src/FuncionesAux/funcionesAux.h src/Datos/Carga.cpp src/Datos/Carga.h src/Menu/Menu.cpp src/Menu/Menu.h src/Constantes/Constates.h)

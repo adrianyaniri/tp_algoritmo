@@ -53,7 +53,7 @@ void TablaHashTerminales::insertarTerminal(Terminal terminal) {
     }
 }
 
-void TablaHashTerminales::imprimeTablaTerminales() {
+void TablaHashTerminales::mostrarTodasLasTerminales() {
     /*
      * Imprime la tabla
      */
@@ -84,7 +84,6 @@ void TablaHashTerminales::buscarTerminal(string codigo) {
              cout << "Posicion: " << key << endl;
               if(it->second.codigo == codigo){
                 terminal = it->second;
-
                 cout << "Codigo: " << terminal.codigo << endl;
                 cout << "Nombre: " << terminal.nombre << endl;
                 cout << "Ciudad: " << terminal.ciudad << endl;
@@ -124,4 +123,12 @@ int key = funcionHash(codigo);
     else{
         cout << "No se encontro la terminal: "<< codigo << endl;
     }
+}
+/*
+ * Muestra un terminal
+ * @param terminal: terminal a mostrar
+ */
+void TablaHashTerminales::mostarTerminal(Terminal terminal) {
+    this->buscarTerminal(terminal.codigo);
+
 }

@@ -14,10 +14,8 @@
 
 using namespace std;
 
-const string TERMINALES = "/home/home/CLionProjects/estructurasDatos/src/Datos/terminales.txt";
-const string VIAJES = "/home/home/CLionProjects/estructurasDatos/src/Datos/viajes.txt";
-
-// Lee el archivo de terminales
+const string TERMINALES = "/home/adrian/UnaHur/Algoritmo/tpFinal/src/Datos/terminales.txt";
+const string VIAJES = "/home/adrian/UnaHur/Algoritmo/tpFinal/src/Datos/viajes.txt";
 
 void leerYCargarTerminales(string archivo, TablaHashTerminales &terminales);
 void leerYCargarViajes(string archivo, ViajeGrafo &viajes);

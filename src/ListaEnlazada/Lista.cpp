@@ -21,7 +21,7 @@ void Lista::insertar(Viaje dato, Nodo *nodo) {
 
 /*
  * Post: Imprime los datos del nodo actual
- * @param nodo: nodo a imprimirTerminales
+ * @param nodo: nodo a mostrarTodasLasTerminales
  */
 void Lista::imprimir(Nodo *nodo) {
     if( nodo != nullptr)

@@ -1,4 +1,4 @@
 CMakeFiles/estructurasDatos.dir/src/Grafo/Arista.cpp.o: \
- /home/home/CLionProjects/final/src/Grafo/Arista.cpp \
+ /home/adrian/UnaHur/Algoritmo/tpFinal/src/Grafo/Arista.cpp \
  /usr/include/stdc-predef.h \
- /home/home/CLionProjects/final/src/Grafo/Arista.h
+ /home/adrian/UnaHur/Algoritmo/tpFinal/src/Grafo/Arista.h

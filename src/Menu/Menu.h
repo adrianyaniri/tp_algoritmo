@@ -6,6 +6,8 @@
 #define ESTRUCTURASDATOS_MENU_H
 
 
-void menu();
+void menuPrincipal();
+void menuTerminales();
+void menuViajes ();
 
 #endif //ESTRUCTURASDATOS_MENU_H

@@ -44,7 +44,6 @@ void leerYCargarViajes(string archivo, ViajeGrafo &viajes) {
     NodoGrafo* origen;
     Viaje viaje;
 
-
     string texto = archivo;
     ifstream file(texto.c_str());
     string line;
