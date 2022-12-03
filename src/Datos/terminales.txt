@@ -1,3 +1,4 @@
 RET Terminal2 Retiro Argentina 34.75 4 12 46
 COR Terminal3 Córdoba Argentina 14 9 87 69
 SAT Terminal4 Salta Argentina 100.250 15 10 0
+RO Terminal5 Rosario Argentina 0 0 0 0

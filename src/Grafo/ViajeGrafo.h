@@ -59,6 +59,8 @@ public:
     void eliminarConexionesDestino(const string &destino);
 
     void Dijkstra(const string& origen, const string& destino);
+
+    void mostrarCamino(const string& origen, const string& destino);
 };
 
 

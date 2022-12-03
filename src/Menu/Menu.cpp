@@ -39,16 +39,90 @@ void menuPrincipal() {
     } while (opcion != 3);
 }
 void menuViajes (){
-    cout << endl;
-    cout << "1. Carga" << endl;
+
+    ViajeGrafo viajes;
+    leerYCargarViajes(VIAJES, viajes);
+
+    string ciudad;
+    string ciudadOrigen ;
+    string ciudadDestino;
+
+    int precio;
+    int distancia;
+
+    int opcion;
+    do {
+        cout << "\n========================================" << endl;
+        cout << "Menu de Viajes" << endl;
+        cout << "========================================" << endl;
+        cout << "1. Mostrar viajes" << endl;
+        cout << "2. Ingresar una nueva ciudad " << endl;
+        cout << "3. Ingresar un nuevo viaje" << endl;
+        cout << "4. Eliminar una ciudad" << endl;
+        cout << "5. Eliminar viajes " << endl;
+        cout << "7. Mostrar viajes de una ciudad a otra con un precio maximo y una duracion maxima" << endl;
+        cout << "8. Salir" << endl;
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+        switch (opcion) {
+            case 1:
+               cout << "Viajes: " << endl;
+                viajes.mostrarListaDestinos();
+                break;
+            case 2:
+                cout << "Ingrese la ciudad: ";
+                cin >> ciudad;
+                viajes.insertarCuidad(ciudad);
+                cout << " Nueva ciudad ingresada: " << ciudad << endl;
+                break;
+            case 3:
+                cout << "Ingrese el codigo de la ciudad origen " << endl;
+                cin >> ciudadOrigen;
+                cout << "Ingrese el codigo de la ciudad destino " << endl;
+                cin >> ciudadDestino;
+                cout << "Ingresar Precio " << endl;
+                cin >> precio;
+                cout << "Ingresar distancia " << endl;
+                cin >> distancia;
+                viajes.insertarViaje(ciudadOrigen, ciudadDestino, precio, distancia);
+                cout << "Ingresar un nuevo viaje desde : "
+                << ciudadOrigen<< " hasta " << ciudadDestino << endl;
+                break;
+            case 4:
+                cout << "Ingresar el codigo de la ciudad a eliminar: ";
+                cin >> ciudad;
+                viajes.eliminarCiudad(ciudad);
+                break;
+            case 5:
+                cout << "Ingresar el codigo de la ciudad origen: ";
+                cin >> ciudadOrigen;
+                cout << "Ingresar el codigo de la ciudad destino: ";
+                cin >> ciudadDestino;
+                viajes.eliminarConexion(ciudadOrigen, ciudadDestino);
+                cout << "Se elimino el viaje desde : " << ciudadOrigen << " hasta " << ciudadDestino << endl;
+                break;
+            case 6:
+                cout << "Ingresar el codigo de la ciudad origen: ";
+                cin >> ciudadOrigen;
+                cout << "Ingresar el codigo de la ciudad destino: ";
+                cin >> ciudadDestino;
+                viajes.Dijkstra(ciudadOrigen, ciudadDestino);
+                cout << "Mostar el camino mas corto de una ciudad a otra" << endl;
+                break;
+            case 8:
+                cout << "Hasta luego!" << endl;
+                exit(EXIT_SUCCESS);break;
+            default:
+                cout << "Opcion invalida" << endl;
+                cout << "Ingrese una opcion valida" << endl;
+        }
+    } while (opcion != 8);
 }
 
 void menuTerminales () {
     TablaHashTerminales terminales(5000 );
-    ViajeGrafo viajes;
-
     leerYCargarTerminales(TERMINALES, terminales);
-    leerYCargarViajes(VIAJES, viajes);
+
     int op;
     std::string terminal;
     std::string ciudad;
@@ -90,8 +164,10 @@ void menuTerminales () {
                 break;
             case 3:
                 cout << "Eliminar una Terminal" << endl;
+                cout << "Ingrese el codigo de la terminal a eliminar: " << endl;
                 cin >> terminal;
                 terminales.eliminarTerminal(terminal);
+                cout << "Se elimino la terminal con codigo: " << terminal << endl;
                 if (terminal == "0")
                     cout <<"No se encontro terminal con ese codigo " << terminal << endl;
                 cout << "______________________________" << endl;
