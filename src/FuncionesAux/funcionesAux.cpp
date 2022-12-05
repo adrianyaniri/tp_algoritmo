@@ -49,5 +49,5 @@ int funcionQuadraticas(string codigo, int i, int tamano){
 
 int funcionHash(string codigo){
    int key = sumarAscii(codigo);
-   return key;
+   return key ;
 }

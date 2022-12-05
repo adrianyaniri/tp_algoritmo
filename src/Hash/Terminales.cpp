@@ -53,7 +53,7 @@ void TablaHashTerminales::insertarTerminal(Terminal terminal) {
     }
 }
 
-void TablaHashTerminales::imprimeTabla() {
+void TablaHashTerminales::mostrarTodasLasTerminales() {
     /*
      * Imprime la tabla
      */
@@ -79,45 +79,56 @@ void TablaHashTerminales::buscarTerminal(string codigo) {
     Terminal terminal;
     int key = funcionHash(codigo);
     key = funcionQuadraticas(codigo, key, tamano);
-
-    if(!terminalesTabla[key].empty()){
-        for(auto it = terminalesTabla[key].begin(); it != terminalesTabla[key].end(); it++){
-            if(it->second.codigo == codigo){
+   if(!terminalesTabla[key].empty()){
+         for(auto it = terminalesTabla[key].begin(); it != terminalesTabla[key].end(); it++){
+             cout << "Posicion: " << key << endl;
+              if(it->second.codigo == codigo){
                 terminal = it->second;
-                cout << "Posicion en la tabla: " << key << endl;
                 cout << "Codigo: " << terminal.codigo << endl;
                 cout << "Nombre: " << terminal.nombre << endl;
                 cout << "Ciudad: " << terminal.ciudad << endl;
                 cout << "Pais: " << terminal.pais << endl;
                 cout << "Superficie: " << terminal.superficie << endl;
-                cout << "Cantidad de terminales: " << terminal.cantidad_terminales << endl;
-                cout << "Destinos nacionales: " << terminal.destinos_nacionales << endl;
+                cout << "Cantidad Terminales " << terminal.cantidad_terminales << endl;
+                cout << "Destinos Nacionales: " << terminal.destinos_nacionales << endl;
                 cout << "Destinos internacionales: " << terminal.destinos_internacionales << endl;
                 cout << endl;
-                break;
-            }
-        }
-        cout << "No se encontro la terminal" << endl;
-    }
+              }
+             break;
+         }
+   }
+   else{
+       cout << "No se encontro la terminal: "<< codigo << endl;
+   }
 }
 
+/*
+ * Elimina una terminal de la tabla
+ * @param codigo: codigo de la terminal a eliminar
+ */
 void TablaHashTerminales::eliminarTerminal(string codigo) {
-    Terminal terminal;
-    int key = funcionHash(codigo);
+int key = funcionHash(codigo);
     key = funcionQuadraticas(codigo, key, tamano);
-
-
+    // Si la posicion no esta vacia, se busca la siguiente posicion libre
     if(!terminalesTabla[key].empty()){
+        // Se busca la terminal a eliminar
         for(auto it = terminalesTabla[key].begin(); it != terminalesTabla[key].end(); it++){
             if(it->second.codigo == codigo){
                 terminalesTabla[key].erase(it);
-                cout << "Terminal eliminada" << endl;
+                cout << "Terminal eliminada: "<< it->second.codigo << endl;
                 break;
             }
-
         }
     }
+    else{
+        cout << "No se encontro la terminal: "<< codigo << endl;
+    }
 }
+/*
+ * Muestra un terminal
+ * @param terminal: terminal a mostrar
+ */
+void TablaHashTerminales::mostarTerminal(Terminal terminal) {
+    this->buscarTerminal(terminal.codigo);
 
-
-
+}

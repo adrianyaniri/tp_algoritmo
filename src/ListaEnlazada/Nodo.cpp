@@ -4,7 +4,7 @@
 
 #include "Nodo.h"
 
-Nodo::Nodo(Dato dato) {
+Nodo::Nodo(Viaje dato) {
 
     this-> siguiente = nullptr;
     this->dato = dato;

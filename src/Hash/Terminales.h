@@ -32,7 +32,8 @@ public:
     // Funciones
     bool estaVacia();
     void insertarTerminal(Terminal terminal);
-    void imprimeTabla();
+    void mostrarTodasLasTerminales();
+    void mostarTerminal(Terminal terminal);
     void buscarTerminal(string codigo);
     void eliminarTerminal(string codigo);
 

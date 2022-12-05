@@ -10,7 +10,7 @@
  * @param dato: dato a insertar
  * @param nodo: nodo a insertarTerminal
  */
-void Lista::insertar(Dato dato, Nodo *nodo) {
+void Lista::insertar(Viaje dato, Nodo *nodo) {
     if (nodo->siguiente == nullptr){
         nodo->siguiente = new Nodo(dato);
 
@@ -21,7 +21,7 @@ void Lista::insertar(Dato dato, Nodo *nodo) {
 
 /*
  * Post: Imprime los datos del nodo actual
- * @param nodo: nodo a imprimirTerminales
+ * @param nodo: nodo a mostrarTodasLasTerminales
  */
 void Lista::imprimir(Nodo *nodo) {
     if( nodo != nullptr)
@@ -37,11 +37,11 @@ void Lista::imprimir(Nodo *nodo) {
  * @param nodo: nodo a eliminar
  * @param dato: dato a eliminar
  */
-void Lista::eliminar(Nodo *nodo, Dato dato) {
+void Lista::eliminar(Nodo *nodo, Viaje dato) {
     if(nodo == nullptr)
         return;
 
-    if (nodo->dato.id == dato.id && nodo == primero){
+    if (nodo->dato.origen == dato.origen && nodo == primero){
         Nodo *temp = primero;
         if (primero->siguiente != nullptr)
             primero = primero->siguiente;
@@ -52,8 +52,8 @@ void Lista::eliminar(Nodo *nodo, Dato dato) {
 
         return;
     }
-    if (nodo->siguiente != nullptr && nodo->siguiente->dato.id == dato.id){
-        if (nodo->siguiente->dato.id == dato.id){
+    if (nodo->siguiente != nullptr && nodo->siguiente->dato.origen == dato.origen){
+        if (nodo->siguiente->dato.origen == dato.origen){
             Nodo *temp = nodo->siguiente;
             if(nodo->siguiente != nullptr){
                 nodo->siguiente = nodo->siguiente->siguiente;
@@ -70,7 +70,7 @@ void Lista::eliminar(Nodo *nodo, Dato dato) {
  * Metodos publicos
  */
 
-void Lista::insertar(Dato dato) {
+void Lista::insertar(Viaje dato) {
     if (primero == nullptr)
         primero = new Nodo(dato);
     else
@@ -78,7 +78,7 @@ void Lista::insertar(Dato dato) {
     tamanio++;
 }
 
-void Lista::eliminar(Dato viaje) {
+void Lista::eliminar(Viaje viaje) {
     this->eliminar(primero, viaje);
     tamanio--;
 }

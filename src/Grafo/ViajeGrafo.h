@@ -5,12 +5,12 @@
 #ifndef ESTRUCTURASDATOS_VIAJEGRAFO_H
 #define ESTRUCTURASDATOS_VIAJEGRAFO_H
 
-#include "Vertice.h"
+#include "NodoGrafo.h"
 using namespace std;
 
 class ViajeGrafo {
 
-    Vertice *primero;
+    NodoGrafo *primero;
     int tamanio;
 
 public:
@@ -24,7 +24,7 @@ public:
     int obtenerTamanio() const;
 
     // Post: retorna el vértice con el nombre dado
-    Vertice *obtenerCiudad(const string &nombre);
+    NodoGrafo *obtenerCiudad(const string &nombre);
 
     void insertarCuidad(const string &nombre);
 
@@ -49,7 +49,7 @@ public:
      * @arg ciudad: ciudad a eliminar
      */
 
-    static void eliminarConexionesCiudad(Vertice *ciudad);
+    static void eliminarConexionesCiudad(NodoGrafo *ciudad);
 
     /*
      * Post: Elimina las aristas destino del vertice
@@ -59,6 +59,8 @@ public:
     void eliminarConexionesDestino(const string &destino);
 
     void Dijkstra(const string& origen, const string& destino);
+
+    void mostrarCamino(const string& origen, const string& destino);
 };
 
 

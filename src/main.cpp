@@ -1,21 +1,13 @@
 #include <fstream>
 #include "Hash/Terminales.h"
-#include "Datos/LeerTxt.h"
+#include "Datos/Carga.h"
+#include "Menu/Menu.h"
+
 using namespace std;
 
 
 int main() {
 
-    list<Terminal> lista;
-    TablaHashTerminales terminales(5000 );
-
-
-    leer(TERMINALES, terminales);
-    terminales.imprimeTabla();
-
-
-
-
-
+    menuPrincipal();
     return 0;
 }

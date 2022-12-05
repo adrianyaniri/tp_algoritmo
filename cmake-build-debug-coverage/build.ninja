@@ -73,8 +73,8 @@ build CMakeFiles/estructurasDatos.dir/src/Grafo/ViajeGrafo.cpp.o: CXX_COMPILER__
   OBJECT_DIR = CMakeFiles/estructurasDatos.dir
   OBJECT_FILE_DIR = CMakeFiles/estructurasDatos.dir/src/Grafo
 
-build CMakeFiles/estructurasDatos.dir/src/Grafo/Vertice.cpp.o: CXX_COMPILER__estructurasDatos_Debug /home/home/CLionProjects/estructurasDatos/src/Grafo/Vertice.cpp || cmake_object_order_depends_target_estructurasDatos
-  DEP_FILE = CMakeFiles/estructurasDatos.dir/src/Grafo/Vertice.cpp.o.d
+build CMakeFiles/estructurasDatos.dir/src/Grafo/NodoGrafo.cpp.o: CXX_COMPILER__estructurasDatos_Debug /home/home/CLionProjects/estructurasDatos/src/Grafo/NodoGrafo.cpp || cmake_object_order_depends_target_estructurasDatos
+  DEP_FILE = CMakeFiles/estructurasDatos.dir/src/Grafo/NodoGrafo.cpp.o.d
   FLAGS = --coverage -g -std=gnu++14
   OBJECT_DIR = CMakeFiles/estructurasDatos.dir
   OBJECT_FILE_DIR = CMakeFiles/estructurasDatos.dir/src/Grafo
@@ -103,8 +103,8 @@ build CMakeFiles/estructurasDatos.dir/src/FuncionesAux/funcionesAux.cpp.o: CXX_C
   OBJECT_DIR = CMakeFiles/estructurasDatos.dir
   OBJECT_FILE_DIR = CMakeFiles/estructurasDatos.dir/src/FuncionesAux
 
-build CMakeFiles/estructurasDatos.dir/src/Datos/LeerTxt.cpp.o: CXX_COMPILER__estructurasDatos_Debug /home/home/CLionProjects/estructurasDatos/src/Datos/LeerTxt.cpp || cmake_object_order_depends_target_estructurasDatos
-  DEP_FILE = CMakeFiles/estructurasDatos.dir/src/Datos/LeerTxt.cpp.o.d
+build CMakeFiles/estructurasDatos.dir/src/Datos/Carga.cpp.o: CXX_COMPILER__estructurasDatos_Debug /home/home/CLionProjects/estructurasDatos/src/Datos/Carga.cpp || cmake_object_order_depends_target_estructurasDatos
+  DEP_FILE = CMakeFiles/estructurasDatos.dir/src/Datos/Carga.cpp.o.d
   FLAGS = --coverage -g -std=gnu++14
   OBJECT_DIR = CMakeFiles/estructurasDatos.dir
   OBJECT_FILE_DIR = CMakeFiles/estructurasDatos.dir/src/Datos
@@ -117,7 +117,7 @@ build CMakeFiles/estructurasDatos.dir/src/Datos/LeerTxt.cpp.o: CXX_COMPILER__est
 #############################################
 # Link the executable estructurasDatos
 
-build estructurasDatos: CXX_EXECUTABLE_LINKER__estructurasDatos_Debug CMakeFiles/estructurasDatos.dir/src/main.cpp.o CMakeFiles/estructurasDatos.dir/src/ListaEnlazada/Nodo.cpp.o CMakeFiles/estructurasDatos.dir/src/ListaEnlazada/Lista.cpp.o CMakeFiles/estructurasDatos.dir/src/Grafo/ViajeGrafo.cpp.o CMakeFiles/estructurasDatos.dir/src/Grafo/Vertice.cpp.o CMakeFiles/estructurasDatos.dir/src/Grafo/Arista.cpp.o CMakeFiles/estructurasDatos.dir/src/Hash/Terminales.cpp.o CMakeFiles/estructurasDatos.dir/src/Menu/Menu.cpp.o CMakeFiles/estructurasDatos.dir/src/FuncionesAux/funcionesAux.cpp.o CMakeFiles/estructurasDatos.dir/src/Datos/LeerTxt.cpp.o
+build estructurasDatos: CXX_EXECUTABLE_LINKER__estructurasDatos_Debug CMakeFiles/estructurasDatos.dir/src/main.cpp.o CMakeFiles/estructurasDatos.dir/src/ListaEnlazada/Nodo.cpp.o CMakeFiles/estructurasDatos.dir/src/ListaEnlazada/Lista.cpp.o CMakeFiles/estructurasDatos.dir/src/Grafo/ViajeGrafo.cpp.o CMakeFiles/estructurasDatos.dir/src/Grafo/NodoGrafo.cpp.o CMakeFiles/estructurasDatos.dir/src/Grafo/Arista.cpp.o CMakeFiles/estructurasDatos.dir/src/Hash/Terminales.cpp.o CMakeFiles/estructurasDatos.dir/src/Menu/Menu.cpp.o CMakeFiles/estructurasDatos.dir/src/FuncionesAux/funcionesAux.cpp.o CMakeFiles/estructurasDatos.dir/src/Datos/Carga.cpp.o
   FLAGS = --coverage -g
   OBJECT_DIR = CMakeFiles/estructurasDatos.dir
   POST_BUILD = :
